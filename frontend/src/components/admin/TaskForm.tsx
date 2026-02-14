@@ -3,6 +3,7 @@ import { AdminTask, AdminTestCase } from '../../types/index';
 import { Button } from '../shared/Button';
 import { Link } from 'react-router-dom';
 import apiService from '../../services/api';
+import { TestScriptEditor } from './TestScriptEditor';
 
 interface TaskFormProps {
   initialData?: Partial<AdminTask>;
@@ -50,7 +51,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({
 
   const [generatedScript, setGeneratedScript] = useState<string>('');
   const [showScriptPreview, setShowScriptPreview] = useState<boolean>(false);
+  const [showScriptEditor, setShowScriptEditor] = useState<boolean>(false);
   const [previewConfigIndex, setPreviewConfigIndex] = useState<number>(0);
+  const [editorConfigIndex, setEditorConfigIndex] = useState<number>(0);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   const addTestCase = (configIndex: number) => {
@@ -111,6 +114,22 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     }
   };
 
+  const openScriptEditor = (configIndex: number) => {
+    setEditorConfigIndex(configIndex);
+    setShowScriptEditor(true);
+  };
+
+  const saveEditedScript = (script: string) => {
+    const newConfigs = [...configs];
+    // We'll store the custom script in a new property
+    newConfigs[editorConfigIndex] = {
+      ...newConfigs[editorConfigIndex],
+      customTestScript: script
+    };
+    setConfigs(newConfigs);
+    setShowScriptEditor(false);
+  };
+
   const validateTask = async () => {
     try {
       const taskData: Partial<AdminTask> = {
@@ -157,11 +176,18 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         .split(',')
         .map((t: any) => t.trim())
         .filter((t: any) => t),
-      configs: configs.map((config: any) => ({
-        ...config,
-        timeout: parseInt(config.timeout),
-        memoryLimit: parseInt(config.memoryLimit),
-      })),
+      configs: configs.map((config: any) => {
+        // Create a new config object without the customTestScript property
+        const { customTestScript, ...cleanConfig } = config;
+        
+        // If we have a custom test script, we might want to save it separately
+        // For now, we'll just keep the clean config
+        return {
+          ...cleanConfig,
+          timeout: parseInt(config.timeout),
+          memoryLimit: parseInt(config.memoryLimit),
+        };
+      }),
     };
 
     await onSubmit(taskData);
@@ -395,6 +421,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({
                     className="px-3 py-1 bg-neon-cyan/20 border border-neon-cyan rounded text-neon-cyan font-mono text-sm hover:bg-neon-cyan/30 transition-colors"
                   >
                     🔧 Generate Script
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => openScriptEditor(index)}
+                    className="px-3 py-1 bg-neon-purple/20 border border-neon-purple rounded text-neon-purple font-mono text-sm hover:bg-neon-purple/30 transition-colors"
+                  >
+                    ✏️ Edit Script
                   </button>
                   {configs.length > 1 && (
                     <button
@@ -688,6 +721,16 @@ export const TaskForm: React.FC<TaskFormProps> = ({
             </div>
           </div>
         </div>
+      )}
+
+      {/* Test Script Editor Modal */}
+      {showScriptEditor && (
+        <TestScriptEditor
+          language={configs[editorConfigIndex]?.language || 'python'}
+          initialScript={configs[editorConfigIndex]?.customTestScript || generatedScript || ''}
+          onSave={saveEditedScript}
+          onCancel={() => setShowScriptEditor(false)}
+        />
       )}
     </>
   );
