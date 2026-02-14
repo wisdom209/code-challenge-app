@@ -1,0 +1,48 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon src/server.ts",
+		"build": "tsc",
+		"start": "node dist/server.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"test:registration": "pnpm dlx ts-node src/test-registration.ts",
+		"test:simple-reset": "pnpm dlx ts-node src/scripts/testSimpleReset.ts",
+		"test:api": "curl http://localhost:3001/health",
+		"test:auth": "npx ts-node src/scripts/testAuth.ts",
+		"test:tasks": "curl http://localhost:3001/api/tasks",
+		"test:db": "echo 'Run: pnpm run seed' && echo 'Then check: http://localhost:3001/health'",
+		"seed:reset": "pnpm run seed:tasks",
+		"seed:view": "tree src/seed-data",
+		"seed:create-structure": "mkdir -p src/seed-data/tasks/{python/{hello-world,sum-two-numbers,fizzbuzz},c/hello-world-c}",
+		"seed": "pnpm dlx ts-node src/scripts/seedDatabase.ts",
+		"test:repo" :"pnpm dlx ts-node src/scripts/testWithMyRepo.ts wisdom209"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.13.4",
+		"bcryptjs": "^3.0.3",
+		"cors": "^2.8.6",
+		"dockerode": "^4.0.9",
+		"dotenv": "^17.2.3",
+		"express": "^5.2.1",
+		"helmet": "^8.1.0",
+		"jsonwebtoken": "^9.0.3",
+		"mongoose": "^9.1.5",
+		"morgan": "^1.10.1"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.19",
+		"@types/dockerode": "^4.0.1",
+		"@types/express": "^5.0.6",
+		"@types/jsonwebtoken": "^9.0.10",
+		"@types/morgan": "^1.9.10",
+		"@types/node": "^25.2.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.3"
+	}
+}
