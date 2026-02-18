@@ -484,7 +484,18 @@ function generatePythonTestScript(
   testCases: ITestCase[],
   entryPoint: string
 ): string {
-  const functionName = entryPoint.replace('.py', '');
+  // Extract function name from entryPoint, handling both file paths and module.function formats
+  let functionName = entryPoint.replace('.py', '');
+  
+  // If entryPoint contains a path separator, extract just the filename
+  if (functionName.includes('/') || functionName.includes('\\')) {
+    functionName = functionName.split(/[\/\\]/).pop() || functionName;
+  }
+  
+  // If entryPoint contains a dot for module.function syntax, extract the function name
+  if (functionName.includes('.')) {
+    functionName = functionName.split('.').pop() || functionName;
+  }
 
   const lines: string[] = [
     '#!/usr/bin/env python3',
@@ -493,6 +504,13 @@ function generatePythonTestScript(
     '',
     'try:',
     `    from ${functionName} import ${functionName}`,
+    'except ImportError:',
+    `    try:`,
+    `        import ${functionName}`,
+    `        ${functionName} = getattr(${functionName}, '${functionName}')`,
+    `    except ImportError:`,
+    `        print(f"FAIL: Could not import function '${functionName}'")`,
+    '        sys.exit(1)',
     'except Exception as e:',
     '    print(f"FAIL: {e}")',
     '    sys.exit(1)',
