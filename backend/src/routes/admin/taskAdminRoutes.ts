@@ -14,7 +14,7 @@ router.post(
   requireAdmin,
   async (req: Request, res: Response) => {
     try {
-      const { language, entryPoint, testCases } = req.body;
+      const { language, entryPoint, testCases, functionName } = req.body;
 
       if (!language || !entryPoint || !testCases) {
         return res.status(400).json({
@@ -27,10 +27,10 @@ router.post(
       let filename: string;
 
       if (language === 'python') {
-        testScript = generatePythonTestScript(testCases, entryPoint);
+        testScript = generatePythonTestScript(testCases, entryPoint, functionName);
         filename = 'test_solution.py';
       } else if (language === 'c') {
-        testScript = generateCTestScript(testCases, entryPoint);
+        testScript = generateCTestScript(testCases, entryPoint, functionName);
         filename = 'test_solution.sh';
       } else {
         return res.status(400).json({
@@ -482,9 +482,10 @@ router.post(
 
 function generatePythonTestScript(
   testCases: ITestCase[],
-  entryPoint: string
+  entryPoint: string,
+  functionName: string
 ): string {
-  const functionName = entryPoint.replace('.py', '');
+  const funcName = functionName || entryPoint.replace('.py', '');
 
   const lines: string[] = [
     '#!/usr/bin/env python3',
@@ -492,7 +493,7 @@ function generatePythonTestScript(
     'import traceback',
     '',
     'try:',
-    `    from ${functionName} import ${functionName}`,
+    `    from ${funcName} import ${funcName}`,
     'except Exception as e:',
     '    print(f"FAIL: {e}")',
     '    sys.exit(1)',
@@ -511,7 +512,7 @@ function generatePythonTestScript(
   lines.push('passed = failed = 0');
   lines.push('for inp, exp, desc in tests:');
   lines.push('    try:');
-  lines.push(`        res = ${functionName}(inp)`);
+  lines.push(`        res = ${funcName}(inp)`);
   lines.push('        if res == exp:');
   lines.push('            print(f"✅ {desc}")');
   lines.push('            passed += 1');
@@ -533,7 +534,8 @@ function generatePythonTestScript(
 
 function generateCTestScript(
   testCases: ITestCase[],
-  entryPoint: string
+  entryPoint: string,
+  functionName: string
 ): string {
   const lines: string[] = [
     '#!/bin/bash',

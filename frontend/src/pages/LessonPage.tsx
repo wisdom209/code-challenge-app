@@ -199,13 +199,15 @@ export const LessonPage: React.FC = () => {
   const lessonKey = `${language}-${category}`;
 
   useEffect(() => {
-    // In production, fetch lesson content from backend or static files
-    // For now, use sample content
+    // In production, fetch from backend
+    // For now, use sample or show coming soon
+    const content = SAMPLE_LESSONS[lessonKey];
     setLessonContent(
-      SAMPLE_LESSONS[lessonKey] ||
-        '# Lesson Not Found\n\nThis lesson is coming soon!'
+      content ||
+        '# Coming Soon\n\nThis lesson is under construction. Check back later!'
     );
   }, [lessonKey]);
+
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -251,7 +253,13 @@ export const LessonPage: React.FC = () => {
             remarkPlugins={[remarkGfm]}
             components={{
               // Properly typed with CodeProps
-              code({ node, inline, className, children, ...props }: CodeComponentProps) {
+              code({
+                node,
+                inline,
+                className,
+                children,
+                ...props
+              }: CodeComponentProps) {
                 // Remove 'ref' if it accidentally appears in props (fixes the SyntaxHighlighter error)
                 const { ref, ...codeProps } = props;
 
@@ -336,4 +344,3 @@ export const LessonPage: React.FC = () => {
     </div>
   );
 };
-

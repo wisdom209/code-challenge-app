@@ -10,7 +10,6 @@ import { Register } from './pages/Register';
 import { LanguageSelection } from './pages/LanguageSelection';
 import { CategorySelection } from './pages/CategorySelection';
 import { CategoryTasks } from './pages/CategoryTasks';
-import { TaskDetails } from './pages/TaskDetails';
 import { LessonPage } from './pages/LessonPage';
 import { Dashboard } from './pages/admin/Dashboard';
 import { CreateTask } from './pages/admin/CreateTask';
@@ -100,16 +99,6 @@ function AppContent() {
             <Layout>
               <ProtectedRoute>
                 <CategoryTasks />
-              </ProtectedRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/task/:id"
-          element={
-            <Layout>
-              <ProtectedRoute>
-                <TaskDetails />
               </ProtectedRoute>
             </Layout>
           }

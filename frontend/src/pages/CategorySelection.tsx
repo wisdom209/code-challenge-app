@@ -31,11 +31,13 @@ export const CategorySelection: React.FC = () => {
           categoryMap.set(task.category, [...existing, task]);
         });
 
-        const grouped = Array.from(categoryMap.entries()).map(([category, tasks]) => ({
-          category,
-          tasks,
-          count: tasks.length,
-        }));
+        const grouped = Array.from(categoryMap.entries()).map(
+          ([category, tasks]) => ({
+            category,
+            tasks,
+            count: tasks.length,
+          })
+        );
 
         setCategories(grouped);
       } catch (err: any) {
@@ -60,7 +62,10 @@ export const CategorySelection: React.FC = () => {
     return (
       <div className="text-center py-12">
         <div className="text-neon-pink text-xl font-mono mb-4">⚠️ {error}</div>
-        <Link to="/languages" className="text-neon-cyan hover:underline font-mono">
+        <Link
+          to="/languages"
+          className="text-neon-cyan hover:underline font-mono"
+        >
           ← Back to languages
         </Link>
       </div>
@@ -75,8 +80,18 @@ export const CategorySelection: React.FC = () => {
           to="/languages"
           className="inline-flex items-center gap-2 text-neon-cyan hover:text-neon-cyan/80 font-mono mb-6 transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Back to Languages
         </Link>
@@ -122,7 +137,8 @@ export const CategorySelection: React.FC = () => {
                 {/* Task Count */}
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-mono text-gray-400">
-                    {category.count} {category.count === 1 ? 'challenge' : 'challenges'}
+                    {category.count}{' '}
+                    {category.count === 1 ? 'challenge' : 'challenges'}
                   </span>
                   <div className="flex gap-1">
                     {category.tasks.slice(0, 3).map((task, i) => (
@@ -140,6 +156,14 @@ export const CategorySelection: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Inside the category card, after the task count */}
+                <Link
+                  to={`/learn/${language}/${category.category}`}
+                  className="inline-block mt-4 text-neon-purple hover:text-neon-purple/80 font-mono text-sm"
+                >
+                  Learn the basics →
+                </Link>
+
                 {/* Action */}
                 <div className="flex items-center gap-2 text-neon-purple font-mono text-sm">
                   <span>View Challenges</span>
@@ -149,7 +173,12 @@ export const CategorySelection: React.FC = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </div>
@@ -160,4 +189,3 @@ export const CategorySelection: React.FC = () => {
     </div>
   );
 };
-

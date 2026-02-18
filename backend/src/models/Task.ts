@@ -24,6 +24,7 @@ export interface ITaskConfig {
   memoryLimit?: number; // Memory limit in MB
   testScriptPath: string; // Path to test script in seed-data (e.g., "C/strings/hello-world")
   testCases: ITestCase[]; // Test cases for validation
+  functionName?: string;
 }
 
 // Main Task interface
@@ -63,7 +64,7 @@ const TestCaseSchema = new Schema(
     input: {
       type: String,
       required: false,
-	  default: ""
+      default: '',
     },
     expectedOutput: {
       type: String,
@@ -128,10 +129,12 @@ const TaskConfigSchema = new Schema(
       min: 64,
       max: 2048,
     },
-    testScriptPath: {  // NEW FIELD
+    testScriptPath: {
+      // NEW FIELD
       type: String,
       required: true,
     },
+    functionName: { type: String },
     testCases: [TestCaseSchema],
   },
   { _id: false }

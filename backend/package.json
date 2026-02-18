@@ -18,7 +18,7 @@
 		"seed:view": "tree src/seed-data",
 		"seed:create-structure": "mkdir -p src/seed-data/tasks/{python/{hello-world,sum-two-numbers,fizzbuzz},c/hello-world-c}",
 		"seed": "pnpm dlx ts-node src/scripts/seedDatabase.ts",
-		"test:repo" :"pnpm dlx ts-node src/scripts/testWithMyRepo.ts wisdom209"
+		"test:repo": "pnpm dlx ts-node src/scripts/testWithMyRepo.ts wisdom209"
 	},
 	"keywords": [],
 	"author": "",
@@ -42,6 +42,7 @@
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/morgan": "^1.9.10",
 		"@types/node": "^25.2.0",
+		"chalk": "^5.6.2",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.3"
 	}

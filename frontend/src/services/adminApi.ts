@@ -73,5 +73,9 @@ export const adminApiService = {
     const response = await adminApi.post('/tasks/bulk-delete', { taskIds });
     return response.data;
   },
+  
+  generateTestScript: async (data: any) => {
+    const response = await adminApi.post('/tasks/generate-test-script', data);
+    return response.data;
+  },
 };
-
