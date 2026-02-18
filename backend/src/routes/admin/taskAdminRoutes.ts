@@ -480,12 +480,23 @@ router.post(
 
 // ============= HELPER FUNCTIONS =============
 
-function generatePythonTestScript(
+private generatePythonTestScript(
   testCases: ITestCase[],
   entryPoint: string,
-  functionName: string
+  functionName?: string
 ): string {
-  const funcName = functionName || entryPoint.replace('.py', '');
+  // Determine the final function name
+  let finalFuncName = functionName || entryPoint.replace('.py', '');
+
+  // If entryPoint contains a path separator, extract just the filename
+  if (finalFuncName.includes('/') || finalFuncName.includes('\\')) {
+    finalFuncName = finalFuncName.split(/[\/\\]/).pop() || finalFuncName;
+  }
+
+  // If entryPoint contains a dot for module.function syntax, extract the function name
+  if (finalFuncName.includes('.')) {
+    finalFuncName = finalFuncName.split('.').pop() || finalFuncName;
+  }
 
   const lines: string[] = [
     '#!/usr/bin/env python3',
@@ -493,7 +504,14 @@ function generatePythonTestScript(
     'import traceback',
     '',
     'try:',
-    `    from ${funcName} import ${funcName}`,
+    `    from ${finalFuncName} import ${finalFuncName}`,
+    'except ImportError:',
+    '    try:',
+    `        import ${finalFuncName}`,
+    `        ${finalFuncName} = getattr(${finalFuncName}, '${finalFuncName}')`,
+    '    except ImportError:',
+    `        print(f"FAIL: Could not import function '${finalFuncName}'")`,
+    '        sys.exit(1)',
     'except Exception as e:',
     '    print(f"FAIL: {e}")',
     '    sys.exit(1)',
@@ -512,7 +530,7 @@ function generatePythonTestScript(
   lines.push('passed = failed = 0');
   lines.push('for inp, exp, desc in tests:');
   lines.push('    try:');
-  lines.push(`        res = ${funcName}(inp)`);
+  lines.push(`        res = ${finalFuncName}(inp)`);
   lines.push('        if res == exp:');
   lines.push('            print(f"✅ {desc}")');
   lines.push('            passed += 1');
