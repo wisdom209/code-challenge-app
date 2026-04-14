@@ -502,6 +502,25 @@ class CLanguageHandler:
             allowed_list = exercise['allowed']
             whitelist_ok = True
             obj_files = []
+            
+            # First pass: collect all user-defined function symbols from source files
+            user_defined_funcs = set()
+            for cf in source_files:
+                src_path = os.path.join(exercise_folder, cf)
+                # Get defined functions (not undefined) from each source file
+                nm_def_proc = subprocess.run(['nm', '-g', '--defined-only', src_path], 
+                                            capture_output=True, text=True, timeout=10)
+                if nm_def_proc.returncode == 0:
+                    for line in nm_def_proc.stdout.splitlines():
+                        parts = line.strip().split()
+                        if len(parts) >= 3 and parts[1] in ('T', 't', 'G', 'g'):
+                            symbol = parts[2]
+                            # Add both with and without leading underscore
+                            user_defined_funcs.add(symbol)
+                            if symbol.startswith('_') and not symbol.startswith('__'):
+                                user_defined_funcs.add(symbol[1:])
+                            else:
+                                user_defined_funcs.add('_' + symbol)
 
             for cf in source_files:
                 src_path = os.path.join(exercise_folder, cf)
@@ -539,7 +558,9 @@ class CLanguageHandler:
                                 continue
                             actual = (symbol[1:] if symbol.startswith('_')
                                       and not symbol.startswith('__') else symbol)
-                            if actual not in allowed_list and symbol not in allowed_list:
+                            # Allow if in allowed_list OR if it's a user-defined function
+                            if (actual not in allowed_list and symbol not in allowed_list 
+                                and actual not in user_defined_funcs and symbol not in user_defined_funcs):
                                 violations.append(actual)
             except FileNotFoundError:
                 pass
