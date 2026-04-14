@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ book.title }} - {{ chapter.title }}</h1>
+<ul class="exercise-list">
+    {% for exercise in chapter.exercises %}
+        <li>
+            {% if loop.index0 in completed %}
+                <span class="completed">✅</span>
+            {% else %}
+                <span class="not-completed">⬜</span>
+            {% endif %}
+            <a href="{{ url_for('view_exercise', book_id=book_id, chapter_idx=chapter_idx, exercise_idx=loop.index0) }}">
+                {{ exercise.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<button onclick="resetChapter()">Reset Chapter Progress</button>
+<button onclick="resetBook()">Reset Book Progress</button>
+
+<script>
+    function resetChapter() {
+        if (confirm('Reset progress for this chapter?')) {
+            fetch('{{ url_for("reset") }}', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    level: 'chapter',
+                    book_id: '{{ book_id }}',
+                    chapter_idx: {{ chapter_idx }}
+                })
+            }).then(r => r.json()).then(data => {
+                if (data.success) location.reload();
+            });
+        }
+    }
+    function resetBook() {
+        if (confirm('Reset progress for this book?')) {
+            fetch('{{ url_for("reset") }}', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    level: 'book',
+                    book_id: '{{ book_id }}'
+                })
+            }).then(r => r.json()).then(data => {
+                if (data.success) location.reload();
+            });
+        }
+    }
+</script>
+<a href="{{ url_for('view_book', book_id=book_id) }}">Back to book</a>
+{% endblock %}

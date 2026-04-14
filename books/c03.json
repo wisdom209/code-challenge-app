@@ -1,0 +1,574 @@
+{
+	"title": "C 03",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"language": "c",
+			"exercises": [
+				{
+					"name": "ft_strcmp",
+					"prototype": "int ft_strcmp(char *s1, char *s2);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "Hello"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "World"
+							},
+							"returns": -15,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "World",
+								"s2": "Hello"
+							},
+							"returns": 15,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "",
+								"s2": ""
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "",
+								"s2": "Hello"
+							},
+							"returns": -72,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "HelloWorld"
+							},
+							"returns": -87,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2"
+							],
+							"init": {
+								"s1": "HelloWorld",
+								"s2": "Hello"
+							},
+							"returns": 87,
+							"stdout": ""
+						}
+					],
+					"description": "Reproduce the behavior of strcmp (man strcmp). Returns an integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2."
+				},
+				{
+					"name": "ft_strncmp",
+					"prototype": "int ft_strncmp(char *s1, char *s2, unsigned int n);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "Hello",
+								"n": 5
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "HelLo",
+								"n": 3
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "HelLo",
+								"n": 4
+							},
+							"returns": 32,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "Hello",
+								"n": 0
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "HelloWorld",
+								"n": 5
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hello",
+								"s2": "HelloWorld",
+								"n": 6
+							},
+							"returns": -87,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"s1",
+								"s2",
+								"n"
+							],
+							"init": {
+								"s1": "Hi",
+								"s2": "Hello",
+								"n": 5
+							},
+							"returns": 4,
+							"stdout": ""
+						}
+					],
+					"description": "Reproduce the behavior of strncmp (man strncmp). Compares at most n characters."
+				},
+				{
+					"name": "ft_strcat",
+					"prototype": "char *ft_strcat(char *dest, char *src);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "Hello ",
+								"src": "world"
+							},
+							"post": {
+								"dest": "Hello world"
+							},
+							"stdout": "",
+							"returns": "Hello world"
+						},
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "",
+								"src": "world"
+							},
+							"post": {
+								"dest": "world"
+							},
+							"stdout": "",
+							"returns": "world"
+						},
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": ""
+							},
+							"post": {
+								"dest": "Hello"
+							},
+							"stdout": "",
+							"returns": "Hello"
+						},
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "",
+								"src": ""
+							},
+							"post": {
+								"dest": ""
+							},
+							"stdout": "",
+							"returns": ""
+						}
+					],
+					"description": "Reproduce the behavior of strcat (man strcat). Appends the src string to the dest string, overwriting the terminating null byte at the end of dest, and then adds a terminating null byte."
+				},
+				{
+					"name": "ft_strncat",
+					"prototype": "char *ft_strncat(char *dest, char *src, unsigned int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src",
+								"nb"
+							],
+							"init": {
+								"dest": "Hello ",
+								"src": "world",
+								"nb": 3
+							},
+							"post": {
+								"dest": "Hello wor"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"nb"
+							],
+							"init": {
+								"dest": "Hello ",
+								"src": "world",
+								"nb": 10
+							},
+							"post": {
+								"dest": "Hello world"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"nb"
+							],
+							"init": {
+								"dest": "Hello ",
+								"src": "world",
+								"nb": 0
+							},
+							"post": {
+								"dest": "Hello "
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"nb"
+							],
+							"init": {
+								"dest": "",
+								"src": "world",
+								"nb": 2
+							},
+							"post": {
+								"dest": "wo"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"nb"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": "",
+								"nb": 5
+							},
+							"post": {
+								"dest": "Hello"
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Reproduce the behavior of strncat (man strncat). Appends at most nb characters from src to dest."
+				},
+				{
+					"name": "ft_strstr",
+					"prototype": "char *ft_strstr(char *str, char *to_find);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "Hello world",
+								"to_find": "world"
+							},
+							"returns": "world",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "Hello world",
+								"to_find": "Hello"
+							},
+							"returns": "Hello world",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "Hello world",
+								"to_find": "o w"
+							},
+							"returns": "o world",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "Hello world",
+								"to_find": "xyz"
+							},
+							"returns": "(null)",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "Hello world",
+								"to_find": ""
+							},
+							"returns": "(null)",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "",
+								"to_find": ""
+							},
+							"returns": "(null)",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"to_find"
+							],
+							"init": {
+								"str": "",
+								"to_find": "a"
+							},
+							"returns": "(null)",
+							"stdout": ""
+						}
+					],
+					"description": "Reproduce the behavior of strstr (man strstr). Finds the first occurrence of the substring to_find in str. Returns a pointer to the beginning of the located substring, or NULL if not found. In these tests, the return value is given as the offset from the start of str (or -1 for NULL)."
+				},
+				{
+					"name": "ft_strlcat",
+					"prototype": "unsigned int ft_strlcat(char *dest, char *src, unsigned int size);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": " world",
+								"size": 20
+							},
+							"returns": 11,
+							"post": {
+								"dest": "Hello world"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": " world",
+								"size": 8
+							},
+							"returns": 11,
+							"post": {
+								"dest": "Hello w"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": " world",
+								"size": 3
+							},
+							"returns": 11,
+							"post": {
+								"dest": "Hello"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "",
+								"src": "world",
+								"size": 10
+							},
+							"returns": 5,
+							"post": {
+								"dest": "world"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": "",
+								"size": 10
+							},
+							"returns": 5,
+							"post": {
+								"dest": "Hello"
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "Hello",
+								"src": "world",
+								"size": 0
+							},
+							"returns": 10,
+							"post": {
+								"dest": "Hello"
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Reproduce the behavior of strlcat (man strlcat). Appends src to dest with size limitation, ensuring null termination. Returns the total length of the string it tried to create (initial dest length + src length)."
+				}
+			]
+		}
+	]
+}

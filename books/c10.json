@@ -1,0 +1,51 @@
+{
+  "title": "C 10",
+  "language": "c",
+  "chapters": [
+    {
+      "title": "Chapter I",
+      "exercises": [
+        {
+          "name": "display_file",
+          "prototype": "",
+          "type": "program",
+          "allowed": ["close", "open", "read", "write"],
+          "required_files": ["Makefile", "ft_display_file.c"],
+          "custom_test": true,
+          "description": "Program that displays the content of a file given as argument. Errors: 'File name missing.', 'Too many arguments.', 'Cannot read file.'",
+          "tests": []
+        },
+        {
+          "name": "cat",
+          "prototype": "",
+          "type": "program",
+          "allowed": ["close", "open", "read", "write", "strerror", "basename"],
+          "required_files": ["Makefile", "ft_cat.c"],
+          "custom_test": true,
+          "description": "Reimplementation of cat: reads files (or stdin) and writes to stdout. Fixed buffer <30KB.",
+          "tests": []
+        },
+        {
+          "name": "tail",
+          "prototype": "",
+          "type": "program",
+          "allowed": ["close", "open", "read", "write", "malloc", "free", "strerror", "basename"],
+          "required_files": ["Makefile", "ft_tail.c"],
+          "custom_test": true,
+          "description": "Reimplementation of tail -c (bytes). No +/- signs. Handle multiple files.",
+          "tests": []
+        },
+        {
+          "name": "hexdump",
+          "prototype": "",
+          "type": "program",
+          "allowed": ["close", "open", "read", "write", "malloc", "free", "strerror", "basename"],
+          "required_files": ["Makefile", "ft_hexdump.c"],
+          "custom_test": true,
+          "description": "Reimplementation of hexdump -C (canonical hex+ASCII). No redirection.",
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+	"repo_url": "https://github.com/wisdom209/code-challenge-platform.git",
+	"use_docker": false,
+	"docker_images": {
+		"c": "gcc-debian-slim"
+	}
+}

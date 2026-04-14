@@ -1,0 +1,49 @@
+{
+	"title": "Forex Trading with Python – Chapter 1",
+	"language": "python",
+	"chapters": [
+		{
+			"title": "Getting Started with Forex Data",
+			"exercises": [
+				{
+					"name": "fetch_forex_data",
+					"type": "function",
+					"prototype": "def fetch_forex_data(pair: str) -> list:",
+					"allowed": [
+						"pandas",
+						"requests",
+						"json"
+					],
+					"tests": [
+						{
+							"args": [
+								"pair"
+							],
+							"init": {
+								"pair": "EUR/USD"
+							},
+							"returns": [
+								{
+									"date": "2023-01-01",
+									"open": 1.1234,
+									"high": 1.1245,
+									"low": 1.1220,
+									"close": 1.1238
+								},
+								{
+									"date": "2023-01-02",
+									"open": 1.1238,
+									"high": 1.1260,
+									"low": 1.1215,
+									"close": 1.1250
+								}
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Fetch daily OHLC data for a given currency pair and return as list of dicts."
+				}
+			]
+		}
+	]
+}

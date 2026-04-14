@@ -1,0 +1,290 @@
+{
+	"title": "C 01",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"language": "c",
+			"exercises": [
+				{
+					"name": "ft_ft",
+					"prototype": "void ft_ft(int *nbr);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"&n"
+							],
+							"init": {
+								"n": 0
+							},
+							"post": {
+								"n": 42
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Takes a pointer to int and sets the value to 42."
+				},
+				{
+					"name": "ft_ultimate_ft",
+					"prototype": "void ft_ultimate_ft(int *********nbr);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [],
+							"init": {},
+							"post": {
+								"n": 42
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Sets the int pointed by a 9-level pointer to 42. (Test harness generates pointer chain automatically.)"
+				},
+				{
+					"name": "ft_swap",
+					"prototype": "void ft_swap(int *a, int *b);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"&a",
+								"&b"
+							],
+							"init": {
+								"a": 42,
+								"b": 24
+							},
+							"post": {
+								"a": 24,
+								"b": 42
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Swaps the values of two integers."
+				},
+				{
+					"name": "ft_div_mod",
+					"prototype": "void ft_div_mod(int a, int b, int *div, int *mod);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"10",
+								"3",
+								"&div_result",
+								"&mod_result"
+							],
+							"init": {
+								"div_result": 0,
+								"mod_result": 0
+							},
+							"post": {
+								"div_result": 3,
+								"mod_result": 1
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Divides a by b and stores the quotient in the int pointed by div, and the remainder in the int pointed by mod."
+				},
+				{
+					"name": "ft_ultimate_div_mod",
+					"prototype": "void ft_ultimate_div_mod(int *a, int *b);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"&a",
+								"&b"
+							],
+							"init": {
+								"a": 10,
+								"b": 3
+							},
+							"post": {
+								"a": 3,
+								"b": 1
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Divides *a by *b, stores the quotient in *a and the remainder in *b."
+				},
+				{
+					"name": "ft_putstr",
+					"prototype": "void ft_putstr(char *str);",
+					"type": "function",
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"\"Hello World!\""
+							],
+							"stdout": "Hello World!"
+						},
+						{
+							"args": [
+								"\"42 is the answer\""
+							],
+							"stdout": "42 is the answer"
+						}
+					],
+					"description": "Displays a string of characters on the standard output."
+				},
+				{
+					"name": "ft_strlen",
+					"prototype": "int ft_strlen(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"\"Hello\""
+							],
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"\"\""
+							],
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"\"42School\""
+							],
+							"returns": 8,
+							"stdout": ""
+						}
+					],
+					"description": "Counts and returns the number of characters in a string."
+				},
+				{
+					"name": "ft_rev_int_tab",
+					"prototype": "void ft_rev_int_tab(int *tab, int size);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"tab",
+								"4"
+							],
+							"init": {
+								"tab": [
+									1,
+									2,
+									3,
+									4
+								]
+							},
+							"post": {
+								"tab": [
+									4,
+									3,
+									2,
+									1
+								]
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"tab",
+								"5"
+							],
+							"init": {
+								"tab": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							"post": {
+								"tab": [
+									5,
+									4,
+									3,
+									2,
+									1
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Reverses a given array of integers."
+				},
+				{
+					"name": "ft_sort_int_tab",
+					"prototype": "void ft_sort_int_tab(int *tab, int size);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"tab",
+								"5"
+							],
+							"init": {
+								"tab": [
+									5,
+									2,
+									4,
+									1,
+									3
+								]
+							},
+							"post": {
+								"tab": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							"stdout": ""
+						},
+						{
+							"args": [
+								"tab",
+								"4"
+							],
+							"init": {
+								"tab": [
+									4,
+									3,
+									2,
+									1
+								]
+							},
+							"post": {
+								"tab": [
+									1,
+									2,
+									3,
+									4
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Sorts an array of integers in ascending order."
+				}
+			]
+		}
+	]
+}

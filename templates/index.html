@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Books</h1>
+{% if repo_url %}
+    <p>Repository: <code>{{ repo_url }}</code></p>
+    <p><strong>Important:</strong> Your repository must contain folders named <code>ex00/</code>, <code>ex01/</code>, etc., with the corresponding <code>.c</code> files inside (e.g., <code>ex00/ft_putchar.c</code>).</p>
+{% else %}
+    <p class="not-completed">No repository set. Please go to <a href="{{ url_for('settings') }}">Settings</a> to configure.</p>
+{% endif %}
+
+<ul class="exercise-list">
+    {% for book_id, book in books.items() %}
+        <li><a href="{{ url_for('view_book', book_id=book_id) }}">{{ book.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

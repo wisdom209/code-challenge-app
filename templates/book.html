@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ book.title }}</h1>
+<ul class="exercise-list">
+    {% for chapter in book.chapters %}
+        <li><a href="{{ url_for('view_chapter', book_id=book_id, chapter_idx=loop.index0) }}">{{ chapter.title }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('index') }}">Back to books</a>
+{% endblock %}

@@ -1,0 +1,59 @@
+{
+  "title": "C 08",
+  "language": "c",
+  "chapters": [
+    {
+      "title": "Chapter I",
+      "exercises": [
+        {
+          "name": "ft.h",
+          "type": "function",
+          "custom_test": true,
+          "allowed": [],
+          "description": "Create ft.h containing prototypes for ft_putchar, ft_swap, ft_putstr, ft_strlen, ft_strcmp.",
+          "tests": []
+        },
+        {
+          "name": "ft_boolean.h",
+          "type": "function",
+          "custom_test": true,
+          "allowed": [],
+          "description": "Create ft_boolean.h defining t_bool, TRUE, FALSE, EVEN, and supporting the provided main.",
+          "tests": []
+        },
+        {
+          "name": "ft_abs.h",
+          "type": "function",
+          "custom_test": true,
+          "allowed": [],
+          "description": "Create macro ABS that returns the absolute value of its argument.",
+          "tests": []
+        },
+        {
+          "name": "ft_point.h",
+          "type": "function",
+          "custom_test": true,
+          "allowed": [],
+          "description": "Define structure t_point with x and y ints.",
+          "tests": []
+        },
+        {
+          "name": "ft_strs_to_tab",
+          "type": "function",
+          "custom_test": true,
+          "allowed": ["malloc", "free"],
+          "description": "Return an array of t_stock_str structures (defined in ft_stock_str.h). The array ends with a NULL str.",
+          "tests": []
+        },
+        {
+          "name": "ft_show_tab",
+          "type": "function",
+          "custom_test": true,
+          "allowed": ["write", "malloc", "free"],
+          "description": "Display the content of the array created by ft_strs_to_tab (one element per line: string, size, copy).",
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

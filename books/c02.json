@@ -1,0 +1,697 @@
+{
+	"title": "C 02",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"language": "c",
+			"exercises": [
+				{
+					"name": "ft_strcpy",
+					"prototype": "char *ft_strcpy(char *dest, char *src);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello"
+							},
+							"returns": "Hello",
+							"stdout": "",
+							"post": {
+								"dest": "Hello"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": ""
+							},
+							"returns": "",
+							"stdout": "",
+							"post": {
+								"dest": ""
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "42"
+							},
+							"returns": "42",
+							"stdout": "",
+							"post": {
+								"dest": "42"
+							}
+						}
+					],
+					"description": "Reproduce the behavior of strcpy (man strcpy)."
+				},
+				{
+					"name": "ft_strncpy",
+					"prototype": "char *ft_strncpy(char *dest, char *src, unsigned int n);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src",
+								"n"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"n": 3
+							},
+							"returns": "Helxxxxxxx",
+							"stdout": "",
+							"post": {
+								"dest": "Helxxxxxxx"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"n"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"n": 5
+							},
+							"returns": "Helloxxxxx",
+							"stdout": "",
+							"post": {
+								"dest": "Helloxxxxx"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"n"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"n": 0
+							},
+							"returns": "xxxxxxxxxx",
+							"stdout": "",
+							"post": {
+								"dest": "xxxxxxxxxx"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"n"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"n": 8
+							},
+							"returns": "Hello",
+							"stdout": "",
+							"post": {
+								"dest": "Hello"
+							}
+						}
+					],
+					"description": "Reproduce the behavior of strncpy (man strncpy)."
+				},
+				{
+					"name": "ft_str_is_alpha",
+					"prototype": "int ft_str_is_alpha(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello42"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello World"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+							},
+							"returns": 1,
+							"stdout": ""
+						}
+					],
+					"description": "Returns 1 if the string contains only alphabetical characters, else 0. Empty string returns 1."
+				},
+				{
+					"name": "ft_str_is_numeric",
+					"prototype": "int ft_str_is_numeric(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "12345"
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "123a5"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "0"
+							},
+							"returns": 1,
+							"stdout": ""
+						}
+					],
+					"description": "Returns 1 if the string contains only digits, else 0. Empty string returns 1."
+				},
+				{
+					"name": "ft_str_is_lowercase",
+					"prototype": "int ft_str_is_lowercase(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "hello"
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "abc123"
+							},
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Returns 1 if the string contains only lowercase alphabetical characters, else 0. Empty string returns 1."
+				},
+				{
+					"name": "ft_str_is_uppercase",
+					"prototype": "int ft_str_is_uppercase(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "HELLO"
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "ABC123"
+							},
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Returns 1 if the string contains only uppercase alphabetical characters, else 0. Empty string returns 1."
+				},
+				{
+					"name": "ft_str_is_printable",
+					"prototype": "int ft_str_is_printable(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello\tWorld"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Printable!"
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "\u0001\u0002"
+							},
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Returns 1 if the string contains only printable characters, else 0. Empty string returns 1."
+				},
+				{
+					"name": "ft_strupcase",
+					"prototype": "char *ft_strupcase(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": "HELLO",
+							"stdout": "",
+							"post": {
+								"str": "HELLO"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "hello world!"
+							},
+							"returns": "HELLO WORLD!",
+							"stdout": "",
+							"post": {
+								"str": "HELLO WORLD!"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": "",
+							"stdout": "",
+							"post": {
+								"str": ""
+							}
+						}
+					],
+					"description": "Transforms every letter to uppercase. Returns str."
+				},
+				{
+					"name": "ft_strlowcase",
+					"prototype": "char *ft_strlowcase(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "HELLO"
+							},
+							"returns": "hello",
+							"stdout": "",
+							"post": {
+								"str": "hello"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello World!"
+							},
+							"returns": "hello world!",
+							"stdout": "",
+							"post": {
+								"str": "hello world!"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": "",
+							"stdout": "",
+							"post": {
+								"str": ""
+							}
+						}
+					],
+					"description": "Transforms every letter to lowercase. Returns str."
+				},
+				{
+					"name": "ft_strcapitalize",
+					"prototype": "char *ft_strcapitalize(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un"
+							},
+							"returns": "Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un",
+							"stdout": "",
+							"post": {
+								"str": "Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "hello world"
+							},
+							"returns": "Hello World",
+							"stdout": "",
+							"post": {
+								"str": "Hello World"
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": "",
+							"stdout": "",
+							"post": {
+								"str": ""
+							}
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "42hello"
+							},
+							"returns": "42hello",
+							"stdout": "",
+							"post": {
+								"str": "42hello"
+							}
+						}
+					],
+					"description": "Capitalizes the first letter of each word and transforms all other letters to lowercase. A word is a string of alphanumeric characters. Returns str."
+				},
+				{
+					"name": "ft_strlcpy",
+					"prototype": "unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"size": 3
+							},
+							"returns": 5,
+							"stdout": "",
+							"post": {
+								"dest": "He"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"size": 6
+							},
+							"returns": 5,
+							"stdout": "",
+							"post": {
+								"dest": "Hello"
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "Hello",
+								"size": 0
+							},
+							"returns": 5,
+							"stdout": "",
+							"post": {
+								"dest": ""
+							}
+						},
+						{
+							"args": [
+								"dest",
+								"src",
+								"size"
+							],
+							"init": {
+								"dest": "xxxxxxxxxx",
+								"src": "",
+								"size": 5
+							},
+							"returns": 0,
+							"stdout": "",
+							"post": {
+								"dest": ""
+							}
+						}
+					],
+					"description": "Reproduce the behavior of strlcpy (man strlcpy)."
+				},
+				{
+					"name": "ft_putstr_non_printable",
+					"prototype": "void ft_putstr_non_printable(char *str);",
+					"type": "function",
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Coucou\\ntu vas bien ?"
+							},
+							"returns": "None",
+							"stdout": "Coucou\\x0atu vas bien ?"
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello\\tWorld"
+							},
+							"returns": "None",
+							"stdout": "Hello\\x09World"
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "No non-printable"
+							},
+							"returns": "None",
+							"stdout": "No non-printable"
+						}
+					],
+					"description": "Displays a string, replacing non‑printable characters by \\xhh (hexadecimal, lowercase)."
+				},
+				{
+					"name": "ft_print_memory",
+					"prototype": "void *ft_print_memory(void *addr, unsigned int size);",
+					"type": "function",
+					"custom_test": true,
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"addr",
+								"size"
+							],
+							"init": {
+								"addr": "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\tlol.lol\n ",
+								"size": 92
+							},
+							"stdout_pattern": "^[0-9a-f]{16}: ([0-9a-f]{2} ){1,16} .{1,16}$",
+							"returns": "addr"
+						}
+					],
+					"description": "Displays memory area in hexadecimal and printable characters. It should return the memory address"
+				}
+			]
+		}
+	]
+}

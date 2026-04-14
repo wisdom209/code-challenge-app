@@ -1,0 +1,401 @@
+{
+	"title": "NumPy Essentials",
+	"language": "python",
+	"chapters": [
+		{
+			"title": "NumPy Basics",
+			"exercises": [
+				{
+					"name": "create_array.py",
+					"prototype": "def create_array(data: list) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"data"
+							],
+							"init": {
+								"data": [
+									1,
+									2,
+									3,
+									4,
+									5
+								]
+							},
+							"returns": [
+								1,
+								2,
+								3,
+								4,
+								5
+							],
+							"stdout": ""
+						},
+						{
+							"args": [
+								"data"
+							],
+							"init": {
+								"data": [
+									[
+										1,
+										2
+									],
+									[
+										3,
+										4
+									]
+								]
+							},
+							"returns": [
+								[
+									1,
+									2
+								],
+								[
+									3,
+									4
+								]
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Create a NumPy array from the input list and return it as a list (use .tolist())."
+				},
+				{
+					"name": "array_attributes",
+					"prototype": "def array_attributes(arr: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr"
+							],
+							"init": {
+								"arr": [
+									[
+										1,
+										2,
+										3
+									],
+									[
+										4,
+										5,
+										6
+									]
+								]
+							},
+							"returns": {
+								"shape": [
+									2,
+									3
+								],
+								"dtype": "int64",
+								"size": 6
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Given a nested list, create a NumPy array and return a dictionary with its shape, dtype (as string), and size."
+				},
+				{
+					"name": "array_operations",
+					"prototype": "def array_operations(a: list, b: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"a",
+								"b"
+							],
+							"init": {
+								"a": [
+									1,
+									2,
+									3
+								],
+								"b": [
+									4,
+									5,
+									6
+								]
+							},
+							"returns": {
+								"sum": [
+									5,
+									7,
+									9
+								],
+								"product": [
+									4,
+									10,
+									18
+								],
+								"dot": 32
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Perform element‑wise addition, element‑wise multiplication, and dot product on two 1‑D arrays. Return results as a dict with keys 'sum', 'product', 'dot'."
+				},
+				{
+					"name": "indexing_slicing",
+					"prototype": "def indexing_slicing(arr: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr"
+							],
+							"init": {
+								"arr": [
+									10,
+									20,
+									30,
+									40,
+									50
+								]
+							},
+							"returns": {
+								"first": 10,
+								"last": 50,
+								"slice_1_3": [
+									20,
+									30
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Return a dict with the first element, last element, and elements from index 1 to 3 (exclusive) of the array."
+				},
+				{
+					"name": "boolean_indexing",
+					"prototype": "def boolean_indexing(arr: list, threshold: int) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr",
+								"threshold"
+							],
+							"init": {
+								"arr": [
+									5,
+									12,
+									8,
+									3,
+									15
+								],
+								"threshold": 10
+							},
+							"returns": [
+								12,
+								15
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Return a list of elements from the array that are greater than the given threshold."
+				},
+				{
+					"name": "reshape_array",
+					"prototype": "def reshape_array(arr: list, new_shape: tuple) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr",
+								"new_shape"
+							],
+							"init": {
+								"arr": [
+									1,
+									2,
+									3,
+									4,
+									5,
+									6
+								],
+								"new_shape": [
+									2,
+									3
+								]
+							},
+							"returns": [
+								[
+									1,
+									2,
+									3
+								],
+								[
+									4,
+									5,
+									6
+								]
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Reshape the 1‑D list into a 2‑D array with the given shape and return as nested list."
+				},
+				{
+					"name": "statistics",
+					"prototype": "def statistics(arr: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr"
+							],
+							"init": {
+								"arr": [
+									2,
+									4,
+									6,
+									8,
+									10
+								]
+							},
+							"returns": {
+								"mean": 6.0,
+								"std": 2.8284271247461903,
+								"sum": 30
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Return the mean, standard deviation, and sum of the array as a dict."
+				},
+				{
+					"name": "broadcast_multiply",
+					"prototype": "def broadcast_multiply(arr: list, scalar: int) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"arr",
+								"scalar"
+							],
+							"init": {
+								"arr": [
+									1,
+									2,
+									3
+								],
+								"scalar": 5
+							},
+							"returns": [
+								5,
+								10,
+								15
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Multiply every element of the array by the scalar using broadcasting and return the result as a list."
+				},
+				{
+					"name": "matrix_multiplication",
+					"prototype": "def matrix_multiplication(A: list, B: list) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"A",
+								"B"
+							],
+							"init": {
+								"A": [
+									[
+										1,
+										2
+									],
+									[
+										3,
+										4
+									]
+								],
+								"B": [
+									[
+										5,
+										6
+									],
+									[
+										7,
+										8
+									]
+								]
+							},
+							"returns": [
+								[
+									19,
+									22
+								],
+								[
+									43,
+									50
+								]
+							],
+							"stdout": ""
+						}
+					],
+					"description": "Perform matrix multiplication (dot product) on two 2‑D arrays and return the result as nested list."
+				},
+				{
+					"name": "random_integers",
+					"prototype": "def random_integers(low: int, high: int, size: int) -> list:",
+					"type": "function",
+					"allowed": [
+						"numpy"
+					],
+					"tests": [
+						{
+							"args": [
+								"low",
+								"high",
+								"size"
+							],
+							"init": {
+								"low": 1,
+								"high": 10,
+								"size": 5
+							},
+							"returns": "random",
+							"stdout": ""
+						}
+					],
+					"description": "Generate an array of random integers between low (inclusive) and high (exclusive) of given size. Return as list."
+				}
+			]
+		}
+	]
+}

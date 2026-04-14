@@ -1,0 +1,111 @@
+{
+	"title": "C 06",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"exercises": [
+				{
+					"name": "ft_print_program_name",
+					"prototype": "int main(int argc, char **argv);",
+					"type": "program",
+					"allowed": ["write"],
+					"custom_test": true,
+					"tests": [],
+					"description": "Create a program that displays its own name."
+				},
+				{
+					"name": "ft_print_params",
+					"prototype": "int main(int argc, char **argv);",
+					"type": "program",
+					"allowed": ["write"],
+					"tests": [
+						{
+							"args": [],
+							"stdout": "",
+							"return": 0
+						},
+						{
+							"args": ["hello"],
+							"stdout": "hello\n",
+							"returns": 0
+						},
+						{
+							"args": ["hello", "world"],
+							"stdout": "hello\nworld\n",
+							"returns": 0
+						},
+						{
+							"args": ["42", "is", "the", "answer"],
+							"stdout": "42\nis\nthe\nanswer\n",
+							"returns": 0
+						}
+					],
+					"description": "Create a program that displays its given arguments. One per line, in the same order as in the command line. It should display all arguments, except for argv[0]."
+				},
+				{
+					"name": "ft_rev_params",
+					"prototype": "int main(int argc, char **argv);",
+					"type": "program",
+					"allowed": ["write"],
+					"tests": [
+						{
+							"args": [],
+							"stdout": ""
+						},
+						{
+							"args": ["hello"],
+							"stdout": "hello\n"
+						},
+						{
+							"args": ["hello", "world"],
+							"stdout": "world\nhello\n"
+						},
+						{
+							"args": ["a", "b", "c"],
+							"stdout": "c\nb\na\n"
+						}
+					],
+					"description": "Create a program that displays its given arguments. One per line, in the reverse order of the command line. It should display all arguments, except for argv[0]."
+				},
+				{
+					"name": "ft_sort_params",
+					"prototype": "int main(int argc, char **argv);",
+					"type": "program",
+					"allowed": ["write"],
+					"tests": [
+						{
+							"args": [],
+							"stdout": ""
+						},
+						{
+							"args": ["hello"],
+							"stdout": "hello\n"
+						},
+						{
+							"args": ["world", "hello"],
+							"stdout": "hello\nworld\n"
+						},
+						{
+							"args": ["42", "a", "Z"],
+							"stdout": "42\nZ\na\n"
+						},
+						{
+							"args": ["hello", "Hello"],
+							"stdout": "Hello\nhello\n"
+						},
+						{
+							"args": ["test", "test"],
+							"stdout": "test\ntest\n"
+						},
+						{
+							"args": ["alpha", "beta", "gamma", "delta"],
+							"stdout": "alpha\nbeta\ndelta\ngamma\n"
+						}
+					],
+					"description": "Create a program that displays its given arguments sorted by ascii order. It should display all arguments, except for argv[0]. One argument per line."
+				}
+			]
+		}
+	]
+}

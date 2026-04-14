@@ -1,0 +1,2205 @@
+[
+  {
+    "title": "C 02",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_strcpy",
+            "prototype": "char *ft_strcpy(char *dest, char *src);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["dest", "src"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello"},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "Hello"}
+              },
+              {
+                "args": ["dest", "src"],
+                "init": {"dest": "xxxxxxxxxx", "src": ""},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": ""}
+              },
+              {
+                "args": ["dest", "src"],
+                "init": {"dest": "xxxxxxxxxx", "src": "42"},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "42"}
+              }
+            ],
+            "description": "Reproduce the behavior of strcpy (man strcpy)."
+          },
+          {
+            "name": "ft_strncpy",
+            "prototype": "char *ft_strncpy(char *dest, char *src, unsigned int n);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["dest", "src", "n"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "n": 3},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "Helxxxxxx"}
+              },
+              {
+                "args": ["dest", "src", "n"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "n": 5},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "Hello"}
+              },
+              {
+                "args": ["dest", "src", "n"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "n": 0},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "xxxxxxxxxx"}
+              },
+              {
+                "args": ["dest", "src", "n"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "n": 8},
+                "returns": "dest",
+                "stdout": "",
+                "post": {"dest": "Hello\\0\\0\\0"}
+              }
+            ],
+            "description": "Reproduce the behavior of strncpy (man strncpy)."
+          },
+          {
+            "name": "ft_str_is_alpha",
+            "prototype": "int ft_str_is_alpha(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Hello"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello42"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello World"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"},
+                "returns": 1,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if the string contains only alphabetical characters, else 0. Empty string returns 1."
+          },
+          {
+            "name": "ft_str_is_numeric",
+            "prototype": "int ft_str_is_numeric(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "12345"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "123a5"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "0"},
+                "returns": 1,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if the string contains only digits, else 0. Empty string returns 1."
+          },
+          {
+            "name": "ft_str_is_lowercase",
+            "prototype": "int ft_str_is_lowercase(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "hello"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "abc123"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if the string contains only lowercase alphabetical characters, else 0. Empty string returns 1."
+          },
+          {
+            "name": "ft_str_is_uppercase",
+            "prototype": "int ft_str_is_uppercase(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "HELLO"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "ABC123"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if the string contains only uppercase alphabetical characters, else 0. Empty string returns 1."
+          },
+          {
+            "name": "ft_str_is_printable",
+            "prototype": "int ft_str_is_printable(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Hello\tWorld"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Printable!"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "\\x01\\x02"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if the string contains only printable characters, else 0. Empty string returns 1."
+          },
+          {
+            "name": "ft_strupcase",
+            "prototype": "char *ft_strupcase(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Hello"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "HELLO"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "hello world!"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "HELLO WORLD!"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": ""}
+              }
+            ],
+            "description": "Transforms every letter to uppercase. Returns str."
+          },
+          {
+            "name": "ft_strlowcase",
+            "prototype": "char *ft_strlowcase(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "HELLO"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "hello"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello World!"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "hello world!"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": ""}
+              }
+            ],
+            "description": "Transforms every letter to lowercase. Returns str."
+          },
+          {
+            "name": "ft_strcapitalize",
+            "prototype": "char *ft_strcapitalize(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "hello world"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "Hello World"}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": ""}
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "42hello"},
+                "returns": "str",
+                "stdout": "",
+                "post": {"str": "42hello"}
+              }
+            ],
+            "description": "Capitalizes the first letter of each word and transforms all other letters to lowercase. A word is a string of alphanumeric characters. Returns str."
+          },
+          {
+            "name": "ft_strlcpy",
+            "prototype": "unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["dest", "src", "size"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "size": 3},
+                "returns": 5,
+                "stdout": "",
+                "post": {"dest": "He"}
+              },
+              {
+                "args": ["dest", "src", "size"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "size": 6},
+                "returns": 5,
+                "stdout": "",
+                "post": {"dest": "Hello"}
+              },
+              {
+                "args": ["dest", "src", "size"],
+                "init": {"dest": "xxxxxxxxxx", "src": "Hello", "size": 0},
+                "returns": 5,
+                "stdout": "",
+                "post": {"dest": "xxxxxxxxxx"}
+              },
+              {
+                "args": ["dest", "src", "size"],
+                "init": {"dest": "xxxxxxxxxx", "src": "", "size": 5},
+                "returns": 0,
+                "stdout": "",
+                "post": {"dest": ""}
+              }
+            ],
+            "description": "Reproduce the behavior of strlcpy (man strlcpy)."
+          },
+          {
+            "name": "ft_putstr_non_printable",
+            "prototype": "void ft_putstr_non_printable(char *str);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Coucou\ntu vas bien ?"},
+                "returns": "void",
+                "stdout": "Coucou\\0atu vas bien ?"
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "Hello\\x01World"},
+                "returns": "void",
+                "stdout": "Hello\\01World"
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "No non-printable"},
+                "returns": "void",
+                "stdout": "No non-printable"
+              }
+            ],
+            "description": "Displays a string, replacing non‑printable characters by \\xhh (hexadecimal, lowercase)."
+          },
+          {
+            "name": "ft_print_memory",
+            "prototype": "void *ft_print_memory(void *addr, unsigned int size);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["addr", "size"],
+                "init": {"addr": "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\tlol.lol\n ", "size": 92},
+                "returns": "addr",
+                "stdout": "000000010a161f40: 426f 6e6a 6f75 7220 6c65 7320 616d 696e Bonjour les amin\n000000010a161f50: 6368 6573 090a 0963 2020 6573 7420 666f ches...c  est fo\n000000010a161f60: 7509 746f 7574 0963 6520 7175 206f 6e20 u.tout.ce qu on \n000000010a161f70: 7065 7574 2066 6169 7265 2061 7665 6309 peut faire avec.\n000000010a161f80: 0a09 7072 696e 745f 6d65 6d6f 7279 0a0a ..print_memory..\n000000010a161f90: 0a09 6c6f 6c2e 6c6f 6c0a 2000           .lol.lol. ."
+              }
+            ],
+            "description": "Displays memory area in hexadecimal and printable characters. Returns addr."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 04",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_strlen",
+            "prototype": "int ft_strlen(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Hello"},
+                "returns": 5,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "This is a longer string."},
+                "returns": 24,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the number of characters in a string."
+          },
+          {
+            "name": "ft_putstr",
+            "prototype": "void ft_putstr(char *str);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "Hello World!"},
+                "returns": "void",
+                "stdout": "Hello World!"
+              },
+              {
+                "args": ["str"],
+                "init": {"str": ""},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Displays a string on the standard output."
+          },
+          {
+            "name": "ft_putnbr",
+            "prototype": "void ft_putnbr(int nb);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 42},
+                "returns": "void",
+                "stdout": "42"
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -42},
+                "returns": "void",
+                "stdout": "-42"
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": "void",
+                "stdout": "0"
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 2147483647},
+                "returns": "void",
+                "stdout": "2147483647"
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -2147483648},
+                "returns": "void",
+                "stdout": "-2147483648"
+              }
+            ],
+            "description": "Displays an integer."
+          },
+          {
+            "name": "ft_atoi",
+            "prototype": "int ft_atoi(char *str);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str"],
+                "init": {"str": "   ---+--+1234ab567"},
+                "returns": -1234,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "  \t\n 42"},
+                "returns": 42,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "-0"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "+-42"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "2147483647"},
+                "returns": 2147483647,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "-2147483648"},
+                "returns": -2147483648,
+                "stdout": ""
+              },
+              {
+                "args": ["str"],
+                "init": {"str": "  + + 42"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Converts the initial portion of a string to int, handling whitespace, signs, and base 10."
+          },
+          {
+            "name": "ft_putnbr_base",
+            "prototype": "void ft_putnbr_base(int nbr, char *base);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 42, "base": "01"},
+                "returns": "void",
+                "stdout": "101010"
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 42, "base": "0123456789"},
+                "returns": "void",
+                "stdout": "42"
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 42, "base": "0123456789ABCDEF"},
+                "returns": "void",
+                "stdout": "2A"
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": -42, "base": "0123456789"},
+                "returns": "void",
+                "stdout": "-42"
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 0, "base": "0123456789"},
+                "returns": "void",
+                "stdout": "0"
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 42, "base": "1"}, 
+                "returns": "void",
+                "stdout": ""
+              },
+              {
+                "args": ["nbr", "base"],
+                "init": {"nbr": 42, "base": "01234567890"}, 
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Displays a number in a given base. Handles negatives. Invalid base prints nothing."
+          },
+          {
+            "name": "ft_atoi_base",
+            "prototype": "int ft_atoi_base(char *str, char *base);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["str", "base"],
+                "init": {"str": "   ---+--+2A", "base": "0123456789ABCDEF"},
+                "returns": -42,
+                "stdout": ""
+              },
+              {
+                "args": ["str", "base"],
+                "init": {"str": "101010", "base": "01"},
+                "returns": 42,
+                "stdout": ""
+              },
+              {
+                "args": ["str", "base"],
+                "init": {"str": "  \t\n 42", "base": "0123456789"},
+                "returns": 42,
+                "stdout": ""
+              },
+              {
+                "args": ["str", "base"],
+                "init": {"str": "  +-42", "base": "0123456789"},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["str", "base"],
+                "init": {"str": "7F", "base": "0123456789ABCDEF"},
+                "returns": 127,
+                "stdout": ""
+              },
+              {
+                "args": ["str", "base"],
+                "init": {"str": "42", "base": ""}, 
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Converts a string in a given base to int, following the same rules as ft_atoi. Invalid base returns 0."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 05",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_iterative_factorial",
+            "prototype": "int ft_iterative_factorial(int nb);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 5},
+                "returns": 120,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 1},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -5},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the factorial of nb (iterative). Invalid argument returns 0."
+          },
+          {
+            "name": "ft_recursive_factorial",
+            "prototype": "int ft_recursive_factorial(int nb);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 5},
+                "returns": 120,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 1},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -5},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the factorial of nb (recursive). Invalid argument returns 0."
+          },
+          {
+            "name": "ft_iterative_power",
+            "prototype": "int ft_iterative_power(int nb, int power);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 2, "power": 3},
+                "returns": 8,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 5, "power": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 0, "power": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 3, "power": -1},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns nb^power (iterative). Power < 0 returns 0. 0^0 returns 1."
+          },
+          {
+            "name": "ft_recursive_power",
+            "prototype": "int ft_recursive_power(int nb, int power);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 2, "power": 3},
+                "returns": 8,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 5, "power": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 0, "power": 0},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb", "power"],
+                "init": {"nb": 3, "power": -1},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns nb^power (recursive). Power < 0 returns 0. 0^0 returns 1."
+          },
+          {
+            "name": "ft_fibonacci",
+            "prototype": "int ft_fibonacci(int index);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["index"],
+                "init": {"index": 0},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": 1},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": 2},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": 3},
+                "returns": 2,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": 4},
+                "returns": 3,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": 5},
+                "returns": 5,
+                "stdout": ""
+              },
+              {
+                "args": ["index"],
+                "init": {"index": -1},
+                "returns": -1,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the n-th Fibonacci number (index starting at 0). Recursive. Negative index returns -1."
+          },
+          {
+            "name": "ft_sqrt",
+            "prototype": "int ft_sqrt(int nb);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 4},
+                "returns": 2,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 16},
+                "returns": 4,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 2},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 2147395600},
+                "returns": 46340,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the integer square root of nb if it exists, else 0."
+          },
+          {
+            "name": "ft_is_prime",
+            "prototype": "int ft_is_prime(int nb);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 2},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 3},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 4},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 17},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 1},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": 0,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -5},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if nb is prime, 0 otherwise."
+          },
+          {
+            "name": "ft_find_next_prime",
+            "prototype": "int ft_find_next_prime(int nb);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["nb"],
+                "init": {"nb": 0},
+                "returns": 2,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 1},
+                "returns": 2,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 2},
+                "returns": 2,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 3},
+                "returns": 3,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 4},
+                "returns": 5,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": 14},
+                "returns": 17,
+                "stdout": ""
+              },
+              {
+                "args": ["nb"],
+                "init": {"nb": -5},
+                "returns": 2,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the smallest prime number greater than or equal to nb."
+          },
+          {
+            "name": "ft_ten_queens_puzzle",
+            "prototype": "int ft_ten_queens_puzzle(void);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": [],
+                "init": {},
+                "returns": 724,
+                "stdout": "0257948136\n0258693147\n... (all 724 solutions separated by newline)"
+              }
+            ],
+            "description": "Displays all possible placements of ten queens on a 10x10 board (each solution as 10 digits) and returns the number of solutions (724)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 06",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_print_program_name",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": [],
+                "stdout": "./a.out"
+              },
+              {
+                "args": ["arg1", "arg2"],
+                "stdout": "./a.out"
+              }
+            ],
+            "description": "Program that displays its own name."
+          },
+          {
+            "name": "ft_print_params",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["test1", "test2", "test3"],
+                "stdout": "test1\ntest2\ntest3\n"
+              },
+              {
+                "args": [],
+                "stdout": ""
+              }
+            ],
+            "description": "Program that displays its given arguments, one per line, in the same order, excluding argv[0]."
+          },
+          {
+            "name": "ft_rev_params",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["test1", "test2", "test3"],
+                "stdout": "test3\ntest2\ntest1\n"
+              },
+              {
+                "args": ["a", "b", "c", "d"],
+                "stdout": "d\nc\nb\na\n"
+              }
+            ],
+            "description": "Program that displays its given arguments in reverse order, one per line, excluding argv[0]."
+          },
+          {
+            "name": "ft_sort_params",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["delta", "alpha", "gamma", "beta"],
+                "stdout": "alpha\nbeta\ndelta\ngamma\n"
+              },
+              {
+                "args": ["banana", "apple", "cherry"],
+                "stdout": "apple\nbanana\ncherry\n"
+              }
+            ],
+            "description": "Program that displays its given arguments sorted by ASCII order, one per line, excluding argv[0]."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 07",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_strdup",
+            "prototype": "char *ft_strdup(char *src);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["src"],
+                "init": {"src": "Hello"},
+                "returns": "Hello",
+                "stdout": ""
+              },
+              {
+                "args": ["src"],
+                "init": {"src": ""},
+                "returns": "",
+                "stdout": ""
+              }
+            ],
+            "description": "Returns a pointer to a new string which is a duplicate of src, allocated with malloc."
+          },
+          {
+            "name": "ft_range",
+            "prototype": "int *ft_range(int min, int max);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["min", "max"],
+                "init": {"min": 3, "max": 7},
+                "returns": [3, 4, 5, 6],
+                "stdout": ""
+              },
+              {
+                "args": ["min", "max"],
+                "init": {"min": 0, "max": 0},
+                "returns": null,
+                "stdout": ""
+              },
+              {
+                "args": ["min", "max"],
+                "init": {"min": 5, "max": 3},
+                "returns": null,
+                "stdout": ""
+              },
+              {
+                "args": ["min", "max"],
+                "init": {"min": -5, "max": 0},
+                "returns": [-5, -4, -3, -2, -1],
+                "stdout": ""
+              }
+            ],
+            "description": "Returns an array of ints containing all values between min (included) and max (excluded). Returns NULL if min >= max."
+          },
+          {
+            "name": "ft_ultimate_range",
+            "prototype": "int ft_ultimate_range(int **range, int min, int max);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["range", "min", "max"],
+                "init": {"range": null, "min": 3, "max": 7},
+                "returns": 4,
+                "stdout": "",
+                "post": {"range": [3, 4, 5, 6]}
+              },
+              {
+                "args": ["range", "min", "max"],
+                "init": {"range": null, "min": 5, "max": 5},
+                "returns": 0,
+                "stdout": "",
+                "post": {"range": null}
+              },
+              {
+                "args": ["range", "min", "max"],
+                "init": {"range": null, "min": 5, "max": 3},
+                "returns": 0,
+                "stdout": "",
+                "post": {"range": null}
+              }
+            ],
+            "description": "Allocates and assigns an array of ints containing all values between min (included) and max (excluded) to *range. Returns the size, or -1 on error. If min>=max, *range is NULL and returns 0."
+          },
+          {
+            "name": "ft_strjoin",
+            "prototype": "char *ft_strjoin(int size, char **strs, char *sep);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["size", "strs", "sep"],
+                "init": {"size": 3, "strs": ["Hello", "world", "!"], "sep": ", "},
+                "returns": "Hello, world, !",
+                "stdout": ""
+              },
+              {
+                "args": ["size", "strs", "sep"],
+                "init": {"size": 1, "strs": ["Alone"], "sep": "---"},
+                "returns": "Alone",
+                "stdout": ""
+              },
+              {
+                "args": ["size", "strs", "sep"],
+                "init": {"size": 0, "strs": [], "sep": ", "},
+                "returns": "",
+                "stdout": ""
+              }
+            ],
+            "description": "Concatenates all strings in strs separated by sep. If size is 0, returns an empty string."
+          },
+          {
+            "name": "ft_convert_base",
+            "prototype": "char *ft_convert_base(char *nbr, char *base_from, char *base_to);",
+            "type": "function",
+            "allowed": ["malloc", "free"],
+            "tests": [
+              {
+                "args": ["nbr", "base_from", "base_to"],
+                "init": {"nbr": "2A", "base_from": "0123456789ABCDEF", "base_to": "01"},
+                "returns": "101010",
+                "stdout": ""
+              },
+              {
+                "args": ["nbr", "base_from", "base_to"],
+                "init": {"nbr": "  \t\n -42", "base_from": "0123456789", "base_to": "0123456789"},
+                "returns": "-42",
+                "stdout": ""
+              },
+              {
+                "args": ["nbr", "base_from", "base_to"],
+                "init": {"nbr": "101010", "base_from": "01", "base_to": "0123456789"},
+                "returns": "42",
+                "stdout": ""
+              },
+              {
+                "args": ["nbr", "base_from", "base_to"],
+                "init": {"nbr": "7F", "base_from": "0123456789ABCDEF", "base_to": "0123456789"},
+                "returns": "127",
+                "stdout": ""
+              },
+              {
+                "args": ["nbr", "base_from", "base_to"],
+                "init": {"nbr": "42", "base_from": "0", "base_to": "0123456789"},
+                "returns": null,
+                "stdout": ""
+              }
+            ],
+            "description": "Converts nbr from base_from to base_to. Returns a newly allocated string. Invalid base returns NULL."
+          },
+          {
+            "name": "ft_split",
+            "prototype": "char **ft_split(char *str, char *charset);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "Hello world, how are you?", "charset": " ,?!"},
+                "returns": ["Hello", "world", "how", "are", "you"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "  a  b  c  ", "charset": " "},
+                "returns": ["a", "b", "c"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "no-separator", "charset": "xyz"},
+                "returns": ["no-separator"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "", "charset": ","},
+                "returns": [],
+                "stdout": ""
+              }
+            ],
+            "description": "Splits str using any character in charset as separator. Returns a NULL-terminated array of strings. Empty strings are skipped."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 08",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft.h",
+            "prototype": "",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": [],
+                "init": {},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Header file containing prototypes: ft_putchar, ft_swap, ft_putstr, ft_strlen, ft_strcmp."
+          },
+          {
+            "name": "ft_boolean.h",
+            "prototype": "",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": [],
+                "init": {},
+                "returns": "void",
+                "stdout": "I have an even number of arguments.\n"
+              }
+            ],
+            "description": "Header defining t_bool, TRUE, FALSE, EVEN, etc., and SUCCESS/FAILURE. Compiles with provided main."
+          },
+          {
+            "name": "ft_abs.h",
+            "prototype": "",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": [],
+                "init": {},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Macro ABS that returns absolute value."
+          },
+          {
+            "name": "ft_point.h",
+            "prototype": "",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": [],
+                "init": {},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Header defining t_point struct with x and y."
+          },
+          {
+            "name": "ft_strs_to_tab",
+            "prototype": "struct s_stock_str *ft_strs_to_tab(int ac, char **av);",
+            "type": "function",
+            "allowed": ["malloc", "free"],
+            "tests": [
+              {
+                "args": ["ac", "av"],
+                "init": {"ac": 3, "av": ["Hello", "world", "42"]},
+                "returns": [{"size": 5, "str": "Hello", "copy": "Hello"}, {"size": 5, "str": "world", "copy": "world"}, {"size": 2, "str": "42", "copy": "42"}, {"size": 0, "str": null, "copy": null}],
+                "stdout": ""
+              }
+            ],
+            "description": "Transforms an array of strings into an array of t_stock_str structures (size, str, copy). Last element's str is NULL. Returns NULL on error."
+          },
+          {
+            "name": "ft_show_tab",
+            "prototype": "void ft_show_tab(struct s_stock_str *par);",
+            "type": "function",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["par"],
+                "init": {"par": [{"size": 5, "str": "Hello", "copy": "Hello"}, {"size": 5, "str": "world", "copy": "world"}, {"size": 2, "str": "42", "copy": "42"}, {"size": 0, "str": null, "copy": null}]},
+                "returns": "void",
+                "stdout": "Hello\n5\nHello\nworld\n5\nworld\n42\n2\n42\n"
+              }
+            ],
+            "description": "Displays the content of the array created by ft_strs_to_tab: string, size, copy, each on its own line."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 09",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "libft_creator.sh",
+            "prototype": "",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": [],
+                "stdout": ""
+              }
+            ],
+            "description": "Shell script that compiles the source files and creates libft.a."
+          },
+          {
+            "name": "Makefile",
+            "prototype": "",
+            "type": "program",
+            "allowed": [],
+            "tests": [
+              {
+                "args": [],
+                "stdout": ""
+              }
+            ],
+            "description": "Makefile that compiles the library with rules all, clean, fclean, re."
+          },
+          {
+            "name": "ft_split",
+            "prototype": "char **ft_split(char *str, char *charset);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "Hello world, how are you?", "charset": " ,?!"},
+                "returns": ["Hello", "world", "how", "are", "you"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "  a  b  c  ", "charset": " "},
+                "returns": ["a", "b", "c"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "no-separator", "charset": "xyz"},
+                "returns": ["no-separator"],
+                "stdout": ""
+              },
+              {
+                "args": ["str", "charset"],
+                "init": {"str": "", "charset": ","},
+                "returns": [],
+                "stdout": ""
+              }
+            ],
+            "description": "Splits str using any character in charset as separator. Returns a NULL-terminated array of strings. Empty strings are skipped."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 10",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_display_file",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["close", "open", "read", "write"],
+            "tests": [
+              {
+                "args": ["Makefile"],
+                "stdout": "content of Makefile..."
+              }
+            ],
+            "description": "Program that displays the content of a file given as argument. Error messages on stderr."
+          },
+          {
+            "name": "ft_cat",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["close", "open", "read", "write", "strerror", "basename"],
+            "tests": [
+              {
+                "args": ["file1", "file2"],
+                "stdout": "content of file1\ncontent of file2"
+              },
+              {
+                "args": ["-"],
+                "stdout": "(reads from stdin)"
+              }
+            ],
+            "description": "Program that mimics the cat command (no options)."
+          },
+          {
+            "name": "ft_tail",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["close", "open", "read", "write", "malloc", "free", "strerror", "basename"],
+            "tests": [
+              {
+                "args": ["-c", "5", "file"],
+                "stdout": "last 5 bytes of file"
+              }
+            ],
+            "description": "Program that mimics tail with -c option (no +/- signs)."
+          },
+          {
+            "name": "ft_hexdump",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["close", "open", "read", "write", "malloc", "free", "strerror", "basename"],
+            "tests": [
+              {
+                "args": ["-C", "file"],
+                "stdout": "hexdump -C output"
+              }
+            ],
+            "description": "Program that mimics hexdump with -C option."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 11",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_foreach",
+            "prototype": "void ft_foreach(int *tab, int length, void (*f)(int));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": [1,2,3,4], "length": 4, "f": "ft_putnbr"},
+                "returns": "void",
+                "stdout": "1234"
+              }
+            ],
+            "description": "Applies function f to each element of tab in order."
+          },
+          {
+            "name": "ft_map",
+            "prototype": "int *ft_map(int *tab, int length, int(*f)(int));",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": [1,2,3,4], "length": 4, "f": "ft_square"},
+                "returns": [1,4,9,16],
+                "stdout": ""
+              }
+            ],
+            "description": "Applies f to each element of tab and returns a new array of results."
+          },
+          {
+            "name": "ft_any",
+            "prototype": "int ft_any(char **tab, int(*f)(char*));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab", "f"],
+                "init": {"tab": ["hello", "world", "42"], "f": "ft_str_is_numeric"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["tab", "f"],
+                "init": {"tab": ["hello", "world", "!"], "f": "ft_str_is_numeric"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if any element of tab (NULL-terminated) makes f return non-zero."
+          },
+          {
+            "name": "ft_count_if",
+            "prototype": "int ft_count_if(char **tab, int length, int(*f)(char*));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": ["hello", "world", "42"], "length": 3, "f": "ft_str_is_numeric"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": ["42", "24", "0"], "length": 3, "f": "ft_str_is_numeric"},
+                "returns": 3,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the number of elements in tab (size length) for which f returns non-zero."
+          },
+          {
+            "name": "ft_is_sort",
+            "prototype": "int ft_is_sort(int *tab, int length, int(*f)(int, int));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": [1,2,3,4], "length": 4, "f": "ft_cmp"},
+                "returns": 1,
+                "stdout": ""
+              },
+              {
+                "args": ["tab", "length", "f"],
+                "init": {"tab": [1,3,2,4], "length": 4, "f": "ft_cmp"},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns 1 if tab is sorted in ascending order according to f (which returns negative, zero, positive)."
+          },
+          {
+            "name": "do-op",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["write"],
+            "tests": [
+              {
+                "args": ["42", "+", "21"],
+                "stdout": "63\n"
+              },
+              {
+                "args": ["42", "-", "21"],
+                "stdout": "21\n"
+              },
+              {
+                "args": ["42", "*", "21"],
+                "stdout": "882\n"
+              },
+              {
+                "args": ["42", "/", "21"],
+                "stdout": "2\n"
+              },
+              {
+                "args": ["42", "%", "21"],
+                "stdout": "0\n"
+              },
+              {
+                "args": ["42", "/", "0"],
+                "stdout": "Stop : division by zero\n"
+              },
+              {
+                "args": ["42", "%", "0"],
+                "stdout": "Stop : modulo by zero\n"
+              },
+              {
+                "args": ["42", "p", "21"],
+                "stdout": "0\n"
+              }
+            ],
+            "description": "Program that performs an operation on two numbers. Uses an array of function pointers."
+          },
+          {
+            "name": "ft_sort_string_tab",
+            "prototype": "void ft_sort_string_tab(char **tab);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab"],
+                "init": {"tab": ["banana", "apple", "cherry", null]},
+                "returns": "void",
+                "stdout": "",
+                "post": {"tab": ["apple", "banana", "cherry", null]}
+              }
+            ],
+            "description": "Sorts the NULL-terminated array tab in ASCII order by swapping pointers."
+          },
+          {
+            "name": "ft_advanced_sort_string_tab",
+            "prototype": "void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["tab", "cmp"],
+                "init": {"tab": ["banana", "apple", "cherry", null], "cmp": "ft_strcmp"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"tab": ["apple", "banana", "cherry", null]}
+              }
+            ],
+            "description": "Sorts tab using the comparison function cmp."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 12",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "ft_create_elem",
+            "prototype": "t_list *ft_create_elem(void *data);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["data"],
+                "init": {"data": "Hello"},
+                "returns": {"data": "Hello", "next": null},
+                "stdout": ""
+              }
+            ],
+            "description": "Creates a new list element with the given data and next = NULL."
+          },
+          {
+            "name": "ft_list_push_front",
+            "prototype": "void ft_list_push_front(t_list **begin_list, void *data);",
+            "type": "function",
+            "allowed": ["ft_create_elem"],
+            "tests": [
+              {
+                "args": ["begin_list", "data"],
+                "init": {"begin_list": null, "data": "first"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": {"data": "first", "next": null}}
+              },
+              {
+                "args": ["begin_list", "data"],
+                "init": {"begin_list": [{"data": "old", "next": null}], "data": "new"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": {"data": "new", "next": {"data": "old", "next": null}}}
+              }
+            ],
+            "description": "Adds a new element at the beginning of the list."
+          },
+          {
+            "name": "ft_list_size",
+            "prototype": "int ft_list_size(t_list *begin_list);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list"],
+                "init": {"begin_list": [1,2,3]},  
+                "returns": 3,
+                "stdout": ""
+              },
+              {
+                "args": ["begin_list"],
+                "init": {"begin_list": null},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the number of elements in the list."
+          },
+          {
+            "name": "ft_list_last",
+            "prototype": "t_list *ft_list_last(t_list *begin_list);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list"],
+                "init": {"begin_list": [1,2,3]},
+                "returns": {"data": 3, "next": null},
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the last element of the list."
+          },
+          {
+            "name": "ft_list_push_back",
+            "prototype": "void ft_list_push_back(t_list **begin_list, void *data);",
+            "type": "function",
+            "allowed": ["ft_create_elem"],
+            "tests": [
+              {
+                "args": ["begin_list", "data"],
+                "init": {"begin_list": [1,2], "data": 3},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": [1,2,3]}
+              }
+            ],
+            "description": "Adds a new element at the end of the list."
+          },
+          {
+            "name": "ft_list_push_strs",
+            "prototype": "t_list *ft_list_push_strs(int size, char **strs);",
+            "type": "function",
+            "allowed": ["ft_create_elem"],
+            "tests": [
+              {
+                "args": ["size", "strs"],
+                "init": {"size": 3, "strs": ["first", "second", "third"]},
+                "returns": {"data": "third", "next": {"data": "second", "next": {"data": "first", "next": null}}},
+                "stdout": ""
+              }
+            ],
+            "description": "Creates a new list from strs. The first element is at the end of the list."
+          },
+          {
+            "name": "ft_list_clear",
+            "prototype": "void ft_list_clear(t_list *begin_list, void (*free_fct)(void *));",
+            "type": "function",
+            "allowed": ["free"],
+            "tests": [
+              {
+                "args": ["begin_list", "free_fct"],
+                "init": {"begin_list": [1,2,3], "free_fct": "free"},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Frees all links of the list using free_fct on the data."
+          },
+          {
+            "name": "ft_list_at",
+            "prototype": "t_list *ft_list_at(t_list *begin_list, unsigned int nbr);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list", "nbr"],
+                "init": {"begin_list": [10,20,30], "nbr": 1},
+                "returns": {"data": 20, "next": {"data": 30, "next": null}},
+                "stdout": ""
+              },
+              {
+                "args": ["begin_list", "nbr"],
+                "init": {"begin_list": [10,20,30], "nbr": 5},
+                "returns": null,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the n-th element (0-based) or NULL if not found."
+          },
+          {
+            "name": "ft_list_reverse",
+            "prototype": "void ft_list_reverse(t_list **begin_list);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list"],
+                "init": {"begin_list": [1,2,3]},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": [3,2,1]}
+              }
+            ],
+            "description": "Reverses the order of the list (pointers only, not data)."
+          },
+          {
+            "name": "ft_list_foreach",
+            "prototype": "void ft_list_foreach(t_list *begin_list, void (*f)(void *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list", "f"],
+                "init": {"begin_list": [1,2,3], "f": "ft_putnbr"},
+                "returns": "void",
+                "stdout": "123"
+              }
+            ],
+            "description": "Applies function f to each element's data."
+          },
+          {
+            "name": "ft_list_foreach_if",
+            "prototype": "void ft_list_foreach_if(t_list *begin_list, void (*f)(void *), void *data_ref, int (*cmp)());",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list", "f", "data_ref", "cmp"],
+                "init": {"begin_list": ["apple", "banana", "cherry"], "f": "ft_putstr", "data_ref": "banana", "cmp": "ft_strcmp"},
+                "returns": "void",
+                "stdout": "banana"
+              }
+            ],
+            "description": "Applies f to elements where cmp with data_ref returns 0."
+          },
+          {
+            "name": "ft_list_find",
+            "prototype": "t_list *ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)());",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list", "data_ref", "cmp"],
+                "init": {"begin_list": ["apple", "banana", "cherry"], "data_ref": "banana", "cmp": "ft_strcmp"},
+                "returns": {"data": "banana", "next": {"data": "cherry", "next": null}},
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the first element where cmp with data_ref returns 0."
+          },
+          {
+            "name": "ft_list_remove_if",
+            "prototype": "void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *));",
+            "type": "function",
+            "allowed": ["free"],
+            "tests": [
+              {
+                "args": ["begin_list", "data_ref", "cmp", "free_fct"],
+                "init": {"begin_list": ["apple", "banana", "cherry"], "data_ref": "banana", "cmp": "ft_strcmp", "free_fct": "free"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": ["apple", "cherry"]}
+              }
+            ],
+            "description": "Removes all elements where cmp with data_ref returns 0, freeing data with free_fct."
+          },
+          {
+            "name": "ft_list_merge",
+            "prototype": "void ft_list_merge(t_list **begin_list1, t_list *begin_list2);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list1", "begin_list2"],
+                "init": {"begin_list1": [1,2], "begin_list2": [3,4]},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list1": [1,2,3,4]}
+              }
+            ],
+            "description": "Places list2 at the end of list1 (no new elements created)."
+          },
+          {
+            "name": "ft_list_sort",
+            "prototype": "void ft_list_sort(t_list **begin_list, int (*cmp)());",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list", "cmp"],
+                "init": {"begin_list": [3,1,2], "cmp": "ft_cmp_int"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": [1,2,3]}
+              }
+            ],
+            "description": "Sorts the list in ascending order using cmp."
+          },
+          {
+            "name": "ft_list_reverse_fun",
+            "prototype": "void ft_list_reverse_fun(t_list *begin_list);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list"],
+                "init": {"begin_list": [1,2,3]},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": [3,2,1]}
+              }
+            ],
+            "description": "Reverses the list (in place) without changing the pointer to the list."
+          },
+          {
+            "name": "ft_sorted_list_insert",
+            "prototype": "void ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)());",
+            "type": "function",
+            "allowed": ["ft_create_elem"],
+            "tests": [
+              {
+                "args": ["begin_list", "data", "cmp"],
+                "init": {"begin_list": [1,3,5], "data": 4, "cmp": "ft_cmp_int"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list": [1,3,4,5]}
+              }
+            ],
+            "description": "Inserts a new element into a sorted list so that it remains sorted."
+          },
+          {
+            "name": "ft_sorted_list_merge",
+            "prototype": "void ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2, int (*cmp)());",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["begin_list1", "begin_list2", "cmp"],
+                "init": {"begin_list1": [1,4], "begin_list2": [2,3], "cmp": "ft_cmp_int"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"begin_list1": [1,2,3,4]}
+              }
+            ],
+            "description": "Merges two sorted lists into one sorted list."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C 13",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Chapter I",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "btree_create_node",
+            "prototype": "t_btree *btree_create_node(void *item);",
+            "type": "function",
+            "allowed": ["malloc"],
+            "tests": [
+              {
+                "args": ["item"],
+                "init": {"item": "Hello"},
+                "returns": {"item": "Hello", "left": null, "right": null},
+                "stdout": ""
+              }
+            ],
+            "description": "Creates a new tree node with the given item and left/right set to NULL."
+          },
+          {
+            "name": "btree_apply_prefix",
+            "prototype": "void btree_apply_prefix(t_btree *root, void (*applyf)(void *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["root", "applyf"],
+                "init": {"root": {"item": "A", "left": {"item": "B"}, "right": {"item": "C"}}, "applyf": "ft_putstr"},
+                "returns": "void",
+                "stdout": "ABC"
+              }
+            ],
+            "description": "Applies applyf to each node's item using prefix traversal (root, left, right)."
+          },
+          {
+            "name": "btree_apply_infix",
+            "prototype": "void btree_apply_infix(t_btree *root, void (*applyf)(void *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["root", "applyf"],
+                "init": {"root": {"item": "A", "left": {"item": "B"}, "right": {"item": "C"}}, "applyf": "ft_putstr"},
+                "returns": "void",
+                "stdout": "BAC"
+              }
+            ],
+            "description": "Applies applyf to each node's item using infix traversal (left, root, right)."
+          },
+          {
+            "name": "btree_apply_suffix",
+            "prototype": "void btree_apply_suffix(t_btree *root, void (*applyf)(void *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["root", "applyf"],
+                "init": {"root": {"item": "A", "left": {"item": "B"}, "right": {"item": "C"}}, "applyf": "ft_putstr"},
+                "returns": "void",
+                "stdout": "BCA"
+              }
+            ],
+            "description": "Applies applyf to each node's item using suffix traversal (left, right, root)."
+          },
+          {
+            "name": "btree_insert_data",
+            "prototype": "void btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *));",
+            "type": "function",
+            "allowed": ["btree_create_node"],
+            "tests": [
+              {
+                "args": ["root", "item", "cmpf"],
+                "init": {"root": null, "item": 5, "cmpf": "ft_cmp_int"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"root": {"item": 5, "left": null, "right": null}}
+              },
+              {
+                "args": ["root", "item", "cmpf"],
+                "init": {"root": {"item": 5}, "item": 3, "cmpf": "ft_cmp_int"},
+                "returns": "void",
+                "stdout": "",
+                "post": {"root": {"item": 5, "left": {"item": 3}, "right": null}}
+              }
+            ],
+            "description": "Inserts item into a sorted binary tree (left <, right >=)."
+          },
+          {
+            "name": "btree_search_item",
+            "prototype": "void *btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void *));",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["root", "data_ref", "cmpf"],
+                "init": {"root": {"item": 5, "left": {"item": 3}, "right": {"item": 7}}, "data_ref": 7, "cmpf": "ft_cmp_int"},
+                "returns": 7,
+                "stdout": ""
+              }
+            ],
+            "description": "Searches for data_ref in the tree (infix traversal). Returns the item if found, else NULL."
+          },
+          {
+            "name": "btree_level_count",
+            "prototype": "int btree_level_count(t_btree *root);",
+            "type": "function",
+            "allowed": [],
+            "tests": [
+              {
+                "args": ["root"],
+                "init": {"root": {"item": 5, "left": {"item": 3, "left": {"item": 1}}}},
+                "returns": 3,
+                "stdout": ""
+              },
+              {
+                "args": ["root"],
+                "init": {"root": null},
+                "returns": 0,
+                "stdout": ""
+              }
+            ],
+            "description": "Returns the size of the largest branch (number of levels)."
+          },
+          {
+            "name": "btree_apply_by_level",
+            "prototype": "void btree_apply_by_level(t_btree *root, void (*applyf)(void *item, int current_level, int is_first));",
+            "type": "function",
+            "allowed": ["malloc", "free"],
+            "tests": [
+              {
+                "args": ["root", "applyf"],
+                "init": {"root": {"item": "A", "left": {"item": "B"}, "right": {"item": "C"}}, "applyf": "some_function"},
+                "returns": "void",
+                "stdout": ""
+              }
+            ],
+            "description": "Applies applyf to each node level by level, passing item, level, and a flag if it's the first node of the level."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "BSQ",
+    "language": "c",
+    "chapters": [
+      {
+        "title": "Final Project",
+        "language": "c",
+        "exercises": [
+          {
+            "name": "BSQ",
+            "prototype": "int main(int argc, char **argv);",
+            "type": "program",
+            "allowed": ["open", "close", "read", "write", "malloc", "free", "exit"],
+            "tests": [
+              {
+                "args": ["map_file"],
+                "stdout": "(map with biggest square filled)"
+              },
+              {
+                "args": [],
+                "stdin": "9.ox\n.........\n.........\n...o.....\n.........\n.........\n.........\n.........\n.........\n.........\n",
+                "stdout": ".....xxxxx\n.....xxxxx\n.....xxxxx\n.....xxxxx\n.....xxxxx\n.........\n.........\n.........\n.........\n"
+              }
+            ],
+            "description": "Program that finds the biggest square on a map read from file or stdin, avoiding obstacles."
+          }
+        ]
+      }
+    ]
+  }
+]

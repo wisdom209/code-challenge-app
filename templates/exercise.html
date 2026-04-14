@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+</style>
+<h1>{{ book.title }} - {{ chapter.title }} - {{ exercise.name }}</h1>
+
+<div style="background: #eef; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+	<p><strong>Turn-in directory:</strong> <code>{{ book_id }}/ex{{ "%02d" % exercise_idx }}/</code></p>
+	<p><strong>Files to turn in:</strong> <code>{{ exercise.name }}.c</code></p>
+	<p><strong>Allowed functions:</strong>
+		{% if exercise.allowed %}
+		{{ exercise.allowed | join(', ') }}
+		{% else %}
+		<em>none specified</em>
+		{% endif %}
+	</p>
+
+	<p><strong>Required files:</strong>
+		{% if exercise.required_files %}
+		{{ exercise.required_files | join(', ') }}
+		{% else %}
+		<em>none specified</em>
+		{% endif %}
+	</p>
+
+	<p><strong>Prototype:</strong> <code>{{ exercise.prototype }}</code></p>
+	<p><strong>Description:</strong> {{ exercise.description }}</p>
+	{% if exercise.forbidden %}
+	<p><strong>Forbidden functions:</strong> {{ exercise.forbidden | join(', ') }}</p>
+	{% endif %}
+</div>
+
+<p><strong>Status:</strong>
+	{% if completed %}
+	<span class="completed">✅ Completed</span>
+	{% else %}
+	<span class="not-completed">❌ Not completed</span>
+	{% endif %}
+</p>
+
+<form method="post">
+	<button type="submit">Run Test</button>
+</form>
+
+{% if result %}
+<div class="result">
+	<h3>Test Results</h3>
+	{% if result.success %}
+	<p class="completed">✅ All checks passed!</p>
+	{% else %}
+	<p class="check-failed">❌ Some checks failed.</p>
+	{% endif %}
+
+	{% for check in result.checks %}
+	<div>
+		<span class="{{ 'check-passed' if check.passed else 'check-failed' }}">
+			{{ '✅' if check.passed else '❌' }} {{ check.name }}
+		</span>
+		{% if check.message %}
+		<div class="details">{{ check.message }}</div>
+		{% endif %}
+	</div>
+	{% endfor %}
+
+	{% if result.stdout_diff %}
+	<h4>Output Mismatch</h4>
+	<p><strong>Expected:</strong></p>
+	{{ result.stdout_diff.expected }}
+	<p><strong>Got:</strong></p>
+	{{ result.stdout_diff.actual }}
+	{% endif %}
+
+	{% if result.details %}
+	<p><strong>Details:</strong> {{ result.details }}</p>
+	{% endif %}
+</div>
+{% endif %}
+
+{% if result and result.test_results %}
+<h4>Test Case Details</h4>
+{% for test in result.test_results %}
+<div style="border:1px solid #ccc; margin:10px 0; padding:10px;">
+	<strong>Test {{ test.test_index }}</strong> -
+	{% if test.passed %}
+	<span class="completed">✅ Passed</span>
+	{% else %}
+	<span class="check-failed">❌ Failed</span>
+	{% endif %}
+	<ul>
+		<li>Stdout: {% if test.stdout_ok %}✅{% else %}❌{% endif %}
+			<hr/>
+			Expected: <pre>{{ test.expected_stdout }}</pre>
+			<hr />
+			Got: <pre>{{ test.actual_stdout }}</pre>
+			<hr/>
+		</li>
+		{% if test.expected_return is not none %}
+		<li>Return: {% if test.ret_ok %}✅{% else %}❌{% endif %}
+			Expected: {{ test.expected_return }}, Got: {{ test.actual_return }}
+		</li>
+		{% endif %}
+		{% if test.expected_post %}
+		<li>Post-variables: {% if test.post_ok %}✅{% else %}❌{% endif %}
+			Expected: {{ test.expected_post }}, Got: {{ test.actual_post }}
+		</li>
+		{% endif %}
+	</ul>
+</div>
+{% endfor %}
+{% endif %}
+
+<button onclick="resetExercise()">Reset This Exercise</button>
+
+<script>
+	function resetExercise() {
+		if (confirm('Reset progress for this exercise?')) {
+			fetch('{{ url_for("reset") }}', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					level: 'exercise',
+					book_id: '{{ book_id }}',
+					chapter_idx: {{ chapter_idx }},
+				exercise_idx: {{ exercise_idx }}
+	})
+            }).then(r => r.json()).then(data => {
+		if (data.success) location.reload();
+	});
+        }
+    }
+</script>
+
+<a href="{{ url_for('view_chapter', book_id=book_id, chapter_idx=chapter_idx) }}">Back to chapter</a>
+{% endblock %}

@@ -1,0 +1,890 @@
+{
+	"title": "C 05",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"exercises": [
+				{
+					"name": "ft_iterative_factorial",
+					"prototype": "int ft_iterative_factorial(int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb"],
+							"init": { "nb": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 1 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 3 },
+							"returns": 6,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 4 },
+							"returns": 24,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 5 },
+							"returns": 120,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 10 },
+							"returns": 3628800,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 12 },
+							"returns": 479001600,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -5 },
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Create an iterated function that returns the factorial of the number given as a parameter. If the argument is not valid the function should return 0. Overflows must not be handled, the function return will be undefined."
+				},
+				{
+					"name": "ft_recursive_factorial",
+					"prototype": "int ft_recursive_factorial(int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb"],
+							"init": { "nb": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 1 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 3 },
+							"returns": 6,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 4 },
+							"returns": 24,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 5 },
+							"returns": 120,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 10 },
+							"returns": 3628800,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 12 },
+							"returns": 479001600,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -5 },
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Create a recursive function that returns the factorial of the number given as a parameter. If the argument is not valid the function should return 0. Overflows must not be handled, the function return will be undefined."
+				},
+				{
+					"name": "ft_iterative_power",
+					"prototype": "int ft_iterative_power(int nb, int power);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": 3 },
+							"returns": 8,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 0, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 0, "power": 5 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 5, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": -1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -2, "power": 3 },
+							"returns": -8,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -2, "power": 4 },
+							"returns": 16,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 2 },
+							"returns": 100,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 1 },
+							"returns": 10,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -10, "power": 1 },
+							"returns": -10,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -10, "power": 2 },
+							"returns": 100,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 1, "power": 100 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -1, "power": 100 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -1, "power": 101 },
+							"returns": -1,
+							"stdout": ""
+						}
+					],
+					"description": "Create an iterated function that returns the value of a power applied to a number. A power lower than 0 returns 0. Overflows must not be handled. We've decided that 0 power 0 will returns 1."
+				},
+				{
+					"name": "ft_recursive_power",
+					"prototype": "int ft_recursive_power(int nb, int power);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": 3 },
+							"returns": 8,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 0, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 0, "power": 5 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 5, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 2, "power": -1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -2, "power": 3 },
+							"returns": -8,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -2, "power": 4 },
+							"returns": 16,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 2 },
+							"returns": 100,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 1 },
+							"returns": 10,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 10, "power": 0 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -10, "power": 1 },
+							"returns": -10,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -10, "power": 2 },
+							"returns": 100,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": 1, "power": 100 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -1, "power": 100 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb", "power"],
+							"init": { "nb": -1, "power": 101 },
+							"returns": -1,
+							"stdout": ""
+						}
+					],
+					"description": "Create a recursive function that returns the value of a power applied to a number. A power lower than 0 returns 0. Overflows must not be handled. We've decided that 0 power 0 will returns 1."
+				},
+				{
+					"name": "ft_fibonacci",
+					"prototype": "int ft_fibonacci(int index);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["index"],
+							"init": { "index": -1 },
+							"returns": -1,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 0 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 1 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 2 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 3 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 4 },
+							"returns": 3,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 5 },
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 6 },
+							"returns": 8,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 10 },
+							"returns": 55,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 20 },
+							"returns": 6765,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 30 },
+							"returns": 832040,
+							"stdout": ""
+						},
+						{
+							"args": ["index"],
+							"init": { "index": 40 },
+							"returns": 102334155,
+							"stdout": ""
+						}
+					],
+					"description": "Create a function ft_fibonacci that returns the n-th element of the Fibonacci sequence, the first element being at the 0 index. We'll consider that the Fibonacci sequence starts like this: 0, 1, 1, 2. Overflows must not be handled, the function return will be undefined. Obviously, ft_fibonacci has to be recursive. If the index is less than 0, the function should return -1."
+				},
+				{
+					"name": "ft_sqrt",
+					"prototype": "int ft_sqrt(int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb"],
+							"init": { "nb": 0 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 1 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 3 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 4 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 9 },
+							"returns": 3,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 16 },
+							"returns": 4,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 25 },
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 100 },
+							"returns": 10,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2147395600 },
+							"returns": 46340,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2147395601 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -1 },
+							"returns": 0,
+							"stdout": ""
+						}
+					],
+					"description": "Create a function that returns the square root of a number (if it exists), or 0 if the square root is an irrational number."
+				},
+				{
+					"name": "ft_is_prime",
+					"prototype": "int ft_is_prime(int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb"],
+							"init": { "nb": 0 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 3 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 4 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 5 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 7 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 11 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 13 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 17 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 19 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 23 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 29 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 30 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 97 },
+							"returns": 1,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 100 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -1 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -5 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 21 },
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 1,
+							"stdout": ""
+						}
+					],
+					"description": "Create a function that returns 1 if the number given as a parameter is a prime number, and 0 if it isn't."
+				},
+				{
+					"name": "ft_find_next_prime",
+					"prototype": "int ft_find_next_prime(int nb);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": ["nb"],
+							"init": { "nb": 0 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 1 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 2 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 3 },
+							"returns": 3,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 4 },
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 5 },
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 6 },
+							"returns": 7,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 7 },
+							"returns": 7,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 8 },
+							"returns": 11,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 9 },
+							"returns": 11,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 10 },
+							"returns": 11,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 11 },
+							"returns": 11,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 12 },
+							"returns": 13,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 13 },
+							"returns": 13,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 14 },
+							"returns": 17,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 15 },
+							"returns": 17,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 16 },
+							"returns": 17,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 17 },
+							"returns": 17,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 18 },
+							"returns": 19,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 19 },
+							"returns": 19,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 20 },
+							"returns": 23,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 21 },
+							"returns": 23,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 22 },
+							"returns": 23,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 23 },
+							"returns": 23,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 24 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 25 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 26 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 27 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 28 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 29 },
+							"returns": 29,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 30 },
+							"returns": 31,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 90 },
+							"returns": 97,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 97 },
+							"returns": 97,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 98 },
+							"returns": 101,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": 100 },
+							"returns": 101,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -5 },
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": ["nb"],
+							"init": { "nb": -1 },
+							"returns": 2,
+							"stdout": ""
+						}
+					],
+					"description": "Create a function that returns the next prime number greater or equal to the number given as argument."
+				},
+				{
+					"name": "ft_ten_queens_puzzle",
+					"prototype": "int ft_ten_queens_puzzle(void);",
+					"type": "function",
+					"allowed": ["write"],
+					"custom_test": true,
+					"tests": [],
+					"description": "Create a function that displays all possible placements of the ten queens on a chessboard which would contain ten columns and ten lines, without them being able to reach each other in a single move, and returns the number of possibilities. Recursivity is required to solve this problem."
+				}
+			]
+		}
+	]
+}

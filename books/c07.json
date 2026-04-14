@@ -1,0 +1,471 @@
+{
+	"title": "C 07",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"exercises": [
+				{
+					"name": "ft_strdup",
+					"prototype": "char *ft_strdup(char *src);",
+					"type": "function",
+					"allowed": [
+						"malloc"
+					],
+					"tests": [
+						{
+							"args": [
+								"\"\""
+							],
+							"returns": ""
+						},
+						{
+							"args": [
+								"\"Hello\""
+							],
+							"returns": "Hello"
+						},
+						{
+							"args": [
+								"\"42 school\""
+							],
+							"returns": "42 school"
+						}
+					],
+					"description": "Reproduce the behavior of the function strdup."
+				},
+				{
+					"name": "ft_range",
+					"prototype": "int *ft_range(int min, int max);",
+					"type": "function",
+					"custom_test": true,
+					"allowed": [
+						"malloc"
+					],
+					"tests": [
+						{
+							"args": [
+								0,
+								5
+							],
+							"returns": [
+								0,
+								1,
+								2,
+								3,
+								4
+							]
+						},
+						{
+							"args": [
+								-3,
+								2
+							],
+							"returns": [
+								-3,
+								-2,
+								-1,
+								0,
+								1
+							]
+						},
+						{
+							"args": [
+								5,
+								5
+							],
+							"returns": null
+						},
+						{
+							"args": [
+								10,
+								5
+							],
+							"returns": null
+						}
+					],
+					"description": "Returns an array of ints containing all values between min and max (min included, max excluded)."
+				},
+				{
+					"name": "ft_ultimate_range",
+					"prototype": "int ft_ultimate_range(int **range, int min, int max);",
+					"type": "function",
+					"custom_test": true,
+					"allowed": [
+						"malloc"
+					],
+					"tests": [
+						{
+							"args": [
+								"&range",
+								0,
+								5
+							],
+							"init": {
+								"range": null
+							},
+							"post": {
+								"range": [
+									0,
+									1,
+									2,
+									3,
+									4
+								]
+							},
+							"returns": 5
+						},
+						{
+							"args": [
+								"&range",
+								-3,
+								2
+							],
+							"init": {
+								"range": null
+							},
+							"post": {
+								"range": [
+									-3,
+									-2,
+									-1,
+									0,
+									1
+								]
+							},
+							"returns": 5
+						},
+						{
+							"args": [
+								"&range",
+								5,
+								5
+							],
+							"init": {
+								"range": null
+							},
+							"post": {
+								"range": null
+							},
+							"returns": 0
+						},
+						{
+							"args": [
+								"&range",
+								10,
+								5
+							],
+							"init": {
+								"range": null
+							},
+							"post": {
+								"range": null
+							},
+							"returns": 0
+						}
+					],
+					"description": "Allocates and assigns an array of ints containing all values between min and max. Returns the size, or -1 on error, and sets range to NULL if min>=max."
+				},
+				{
+					"name": "ft_strjoin",
+					"prototype": "char *ft_strjoin(int size, char **strs, char *sep);",
+					"type": "function",
+					"allowed": [
+						"malloc"
+					],
+					"tests": [
+						{
+							"args": [
+								"0",
+								"strs",
+								"\" \""
+							],
+							"init": {
+								"strs": null
+							},
+							"returns": ""
+						},
+						{
+							"args": [
+								"1",
+								"strs",
+								"\", \""
+							],
+							"init": {
+								"strs": [
+									"Hello"
+								]
+							},
+							"returns": "Hello"
+						},
+						{
+							"args": [
+								"2",
+								"strs",
+								"\" \""
+							],
+							"init": {
+								"strs": [
+									"Hello",
+									"world"
+								]
+							},
+							"returns": "Hello world"
+						},
+						{
+							"args": [
+								"3",
+								"strs",
+								"\" \""
+							],
+							"init": {
+								"strs": [
+									"42",
+									"is",
+									"the answer"
+								]
+							},
+							"returns": "42 is the answer"
+						},
+						{
+							"args": [
+								"3",
+								"strs",
+								"\"-\""
+							],
+							"init": {
+								"strs": [
+									"42",
+									"is",
+									"the answer"
+								]
+							},
+							"returns": "42-is-the answer"
+						},
+						{
+							"args": [
+								"2",
+								"strs",
+								"\"\""
+							],
+							"init": {
+								"strs": [
+									"a",
+									"b"
+								]
+							},
+							"returns": "ab"
+						}
+					],
+					"description": "Concatenates all strings in strs separated by sep. If size is 0, returns an empty string."
+				},
+				{
+					"name": "ft_convert_base",
+					"prototype": "char *ft_convert_base(char *nbr, char *base_from, char *base_to);",
+					"type": "function",
+					"files": [
+						"ft_convert_base.c",
+						"ft_convert_base2.c"
+					],
+					"allowed": [
+						"malloc",
+						"free"
+					],
+					"tests": [
+						{
+							"args": [
+								"\"101\"",
+								"\"01\"",
+								"\"0123456789\""
+							],
+							"returns": "5"
+						},
+						{
+							"args": [
+								"\"-101\"",
+								"\"01\"",
+								"\"0123456789\""
+							],
+							"returns": "-5"
+						},
+						{
+							"args": [
+								"\"7F\"",
+								"\"0123456789ABCDEF\"",
+								"\"0123456789\""
+							],
+							"returns": "127"
+						},
+						{
+							"args": [
+								"\"  -42\"",
+								"\"0123456789\"",
+								"\"0123456789\""
+							],
+							"returns": "-42"
+						},
+						{
+							"args": [
+								"\"  +42\"",
+								"\"0123456789\"",
+								"\"0123456789\""
+							],
+							"returns": "42"
+						},
+						{
+							"args": [
+								"\"  42\"",
+								"\"0123456789\"",
+								"\"0123456789\""
+							],
+							"returns": "42"
+						},
+						{
+							"args": [
+								"\"0\"",
+								"\"0123456789\"",
+								"\"01\""
+							],
+							"returns": "0"
+						},
+						{
+							"args": [
+								"\"-0\"",
+								"\"0123456789\"",
+								"\"01\""
+							],
+							"returns": "0"
+						},
+						{
+							"args": [
+								"\"2147483647\"",
+								"\"0123456789\"",
+								"\"0123456789\""
+							],
+							"returns": "2147483647"
+						},
+						{
+							"args": [
+								"\"-2147483648\"",
+								"\"0123456789\"",
+								"\"0123456789\""
+							],
+							"returns": "-2147483648"
+						},
+						{
+							"args": [
+								"\"101\"",
+								"\"\"",
+								"\"0123456789\""
+							],
+							"returns": null
+						},
+						{
+							"args": [
+								"\"101\"",
+								"\"01\"",
+								"\"0\""
+							],
+							"returns": null
+						},
+						{
+							"args": [
+								"\"101\"",
+								"\"01\"",
+								"\"01+-\""
+							],
+							"returns": null
+						}
+					],
+					"description": "Converts nbr from base_from to base_to. Returns NULL if a base is invalid."
+				},
+				{
+					"name": "ft_split",
+					"prototype": "char **ft_split(char *str, char *charset);",
+					"type": "function",
+					"custom_test": true,
+					"allowed": [
+						"malloc"
+					],
+					"tests": [
+						{
+							"args": [
+								"\"\"",
+								"\" \""
+							],
+							"returns": []
+						},
+						{
+							"args": [
+								"\"Hello world\"",
+								"\" \""
+							],
+							"returns": [
+								"Hello",
+								"world"
+							]
+						},
+						{
+							"args": [
+								"\"  hello   world  \"",
+								"\" \""
+							],
+							"returns": [
+								"hello",
+								"world"
+							]
+						},
+						{
+							"args": [
+								"\"a,b,c\"",
+								"\",\""
+							],
+							"returns": [
+								"a",
+								"b",
+								"c"
+							]
+						},
+						{
+							"args": [
+								"\"hello!world?test\"",
+								"\"!?\""
+							],
+							"returns": [
+								"hello",
+								"world",
+								"test"
+							]
+						},
+						{
+							"args": [
+								"\"  hello  \"",
+								"\" \""
+							],
+							"returns": [
+								"hello"
+							]
+						},
+						{
+							"args": [
+								"\"hello\"",
+								"\" \""
+							],
+							"returns": [
+								"hello"
+							]
+						},
+						{
+							"args": [
+								"\"   \"",
+								"\" \""
+							],
+							"returns": []
+						}
+					],
+					"description": "Splits str into an array of strings using characters from charset as separators. The array is terminated by NULL."
+				}
+			]
+		}
+	]
+}

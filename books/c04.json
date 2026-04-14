@@ -1,0 +1,779 @@
+{
+	"title": "C 04",
+	"language": "c",
+	"chapters": [
+		{
+			"title": "Chapter I",
+			"exercises": [
+				{
+					"name": "ft_strlen",
+					"prototype": "int ft_strlen(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": 5,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "42"
+							},
+							"returns": 2,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello World!"
+							},
+							"returns": 12,
+							"stdout": ""
+						}
+					],
+					"description": "Create a function that counts and returns the number of characters in a string."
+				},
+				{
+					"name": "ft_putstr",
+					"prototype": "void ft_putstr(char *str);",
+					"type": "function",
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "Hello"
+							},
+							"returns": "None",
+							"stdout": "Hello"
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": ""
+							},
+							"returns": "None",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "42"
+							},
+							"returns": "None",
+							"stdout": "42"
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "HelloWorld"
+							},
+							"returns": "None",
+							"stdout": "HelloWorld"
+						}
+					],
+					"description": "Create a function that displays a string of characters on the standard output."
+				},
+				{
+					"name": "ft_putnbr",
+					"prototype": "void ft_putnbr(int nb);",
+					"type": "function",
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"nb"
+							],
+							"init": {
+								"nb": 42
+							},
+							"returns": "None",
+							"stdout": "42"
+						},
+						{
+							"args": [
+								"nb"
+							],
+							"init": {
+								"nb": 0
+							},
+							"returns": "None",
+							"stdout": "0"
+						},
+						{
+							"args": [
+								"nb"
+							],
+							"init": {
+								"nb": -42
+							},
+							"returns": "None",
+							"stdout": "-42"
+						},
+						{
+							"args": [
+								"nb"
+							],
+							"init": {
+								"nb": 2147483647
+							},
+							"returns": "None",
+							"stdout": "2147483647"
+						},
+						{
+							"args": [
+								"nb"
+							],
+							"init": {
+								"nb": -2147483648
+							},
+							"returns": "None",
+							"stdout": "-2147483648"
+						}
+					],
+					"description": "Create a function that displays the number entered as a parameter. The function has to be able to display all possible values within an int type variable."
+				},
+				{
+					"name": "ft_atoi",
+					"prototype": "int ft_atoi(char *str);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "42"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   -42"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   ---+--+1234ab567"
+							},
+							"returns": -1234,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   +42"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   -+42"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   --42"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   +-42"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   abc"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   42abc"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   -2147483648"
+							},
+							"returns": -2147483648,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str"
+							],
+							"init": {
+								"str": "   2147483647"
+							},
+							"returns": 2147483647,
+							"stdout": ""
+						}
+					],
+					"description": "Write a function that converts the initial portion of the string pointed by str to its int representation. The string can start with an arbitrary amount of white space, followed by an arbitrary amount of + and - signs, and then digits. The function should read until the string stops following the rules and return the number found until now. Do not handle overflow or underflow."
+				},
+				{
+					"name": "ft_putnbr_base",
+					"prototype": "void ft_putnbr_base(int nbr, char *base);",
+					"type": "function",
+					"allowed": [
+						"write"
+					],
+					"tests": [
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "0123456789"
+							},
+							"returns": "None",
+							"stdout": "42"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": -42,
+								"base": "0123456789"
+							},
+							"returns": "None",
+							"stdout": "-42"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 0,
+								"base": "0123456789"
+							},
+							"returns": "None",
+							"stdout": "0"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "01"
+							},
+							"returns": "None",
+							"stdout": "101010"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": -42,
+								"base": "01"
+							},
+							"returns": "None",
+							"stdout": "-101010"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "0123456789ABCDEF"
+							},
+							"returns": "None",
+							"stdout": "2A"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 255,
+								"base": "0123456789ABCDEF"
+							},
+							"returns": "None",
+							"stdout": "FF"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": -255,
+								"base": "0123456789ABCDEF"
+							},
+							"returns": "None",
+							"stdout": "-FF"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "poneyvif"
+							},
+							"returns": "None",
+							"stdout": "vn"
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": ""
+							},
+							"returns": "None",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "0"
+							},
+							"returns": "None",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "01234567890"
+							},
+							"returns": "None",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "01234+6789"
+							},
+							"returns": "None",
+							"stdout": ""
+						},
+						{
+							"args": [
+								"nbr",
+								"base"
+							],
+							"init": {
+								"nbr": 42,
+								"base": "01234-6789"
+							},
+							"returns": "None",
+							"stdout": ""
+						}
+					],
+					"description": "Create a function that displays a number in a base system in the terminal. The number is given as an int, and the radix as a string. The function must handle negative numbers. If the base is invalid (empty, size 1, duplicate characters, or contains '+' or '-'), nothing should be displayed."
+				},
+				{
+					"name": "ft_atoi_base",
+					"prototype": "int ft_atoi_base(char *str, char *base);",
+					"type": "function",
+					"allowed": [],
+					"tests": [
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "0123456789"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   -42",
+								"base": "0123456789"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   ---+--+1234ab567",
+								"base": "0123456789"
+							},
+							"returns": -1234,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   +42",
+								"base": "0123456789"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   -+42",
+								"base": "0123456789"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   --42",
+								"base": "0123456789"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   +-42",
+								"base": "0123456789"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   abc",
+								"base": "0123456789"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   42abc",
+								"base": "0123456789"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   -2147483648",
+								"base": "0123456789"
+							},
+							"returns": -2147483648,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   2147483647",
+								"base": "0123456789"
+							},
+							"returns": 2147483647,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "101010",
+								"base": "01"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "-101010",
+								"base": "01"
+							},
+							"returns": -42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "   +101010",
+								"base": "01"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "2A",
+								"base": "0123456789ABCDEF"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "FF",
+								"base": "0123456789ABCDEF"
+							},
+							"returns": 255,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "-FF",
+								"base": "0123456789ABCDEF"
+							},
+							"returns": -255,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "vn",
+								"base": "poneyvif"
+							},
+							"returns": 42,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": ""
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "0"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "01234567890"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "01234+6789"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "01234-6789"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "42",
+								"base": "01234 6789"
+							},
+							"returns": 0,
+							"stdout": ""
+						},
+						{
+							"args": [
+								"str",
+								"base"
+							],
+							"init": {
+								"str": "4Z",
+								"base": "0123456789"
+							},
+							"returns": 4,
+							"stdout": ""
+						}
+					],
+					"description": "Write a function that converts the initial portion of the string pointed by str to int representation, where str is in a specific base given as a second parameter. Except for the base rule, the function should work exactly like ft_atoi. If the base is invalid (empty, size 1, duplicate characters, or contains '+', '-', or whitespace), the function should return 0."
+				}
+			]
+		}
+	]
+}

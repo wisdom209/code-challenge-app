@@ -1,0 +1,431 @@
+{
+	"title": "Pandas Fundamentals",
+	"language": "python",
+	"chapters": [
+		{
+			"title": "Pandas Basics",
+			"exercises": [
+				{
+					"name": "create_series",
+					"prototype": "def create_series(data: list, index: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"data",
+								"index"
+							],
+							"init": {
+								"data": [
+									10,
+									20,
+									30
+								],
+								"index": [
+									"a",
+									"b",
+									"c"
+								]
+							},
+							"returns": {
+								"a": 10,
+								"b": 20,
+								"c": 30
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Create a pandas Series from the given data and index, then return it as a dictionary (use .to_dict())."
+				},
+				{
+					"name": "create_dataframe",
+					"prototype": "def create_dataframe(data: dict) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"data"
+							],
+							"init": {
+								"data": {
+									"col1": [
+										1,
+										2
+									],
+									"col2": [
+										3,
+										4
+									]
+								}
+							},
+							"returns": {
+								"col1": [
+									1,
+									2
+								],
+								"col2": [
+									3,
+									4
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Create a DataFrame from the dictionary (keys as column names, values as lists). Return the DataFrame as a dictionary (use .to_dict(orient='list'))."
+				},
+				{
+					"name": "read_csv_dict",
+					"prototype": "def read_csv_dict(csv_data: str) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas",
+						"io"
+					],
+					"tests": [
+						{
+							"args": [
+								"csv_data"
+							],
+							"init": {
+								"csv_data": "name,age\nAlice,30\nBob,25"
+							},
+							"returns": {
+								"name": [
+									"Alice",
+									"Bob"
+								],
+								"age": [
+									30,
+									25
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Use pandas.read_csv on a string (use io.StringIO) and return the DataFrame as a dictionary with 'list' orientation."
+				},
+				{
+					"name": "dataframe_info",
+					"prototype": "def dataframe_info(df_dict: dict) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict"
+							],
+							"init": {
+								"df_dict": {
+									"A": [
+										1,
+										2,
+										3
+									],
+									"B": [
+										4,
+										5,
+										6
+									]
+								}
+							},
+							"returns": {
+								"shape": [
+									3,
+									2
+								],
+								"columns": [
+									"A",
+									"B"
+								],
+								"dtypes": {
+									"A": "int64",
+									"B": "int64"
+								}
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Given a dictionary representation of a DataFrame, create a DataFrame and return a dict with its shape, column list, and dtypes (as strings)."
+				},
+				{
+					"name": "add_column",
+					"prototype": "def add_column(df_dict: dict, new_col: str, values: list) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict",
+								"new_col",
+								"values"
+							],
+							"init": {
+								"df_dict": {
+									"A": [
+										1,
+										2
+									]
+								},
+								"new_col": "B",
+								"values": [
+									3,
+									4
+								]
+							},
+							"returns": {
+								"A": [
+									1,
+									2
+								],
+								"B": [
+									3,
+									4
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Add a new column to the DataFrame and return the updated DataFrame as a dictionary."
+				},
+				{
+					"name": "filter_rows",
+					"prototype": "def filter_rows(df_dict: dict, column: str, threshold: int) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict",
+								"column",
+								"threshold"
+							],
+							"init": {
+								"df_dict": {
+									"A": [
+										1,
+										2,
+										3,
+										4
+									],
+									"B": [
+										5,
+										6,
+										7,
+										8
+									]
+								},
+								"column": "A",
+								"threshold": 2
+							},
+							"returns": {
+								"A": [
+									3,
+									4
+								],
+								"B": [
+									7,
+									8
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Return rows where the value in the given column is greater than threshold. Return as dictionary."
+				},
+				{
+					"name": "handle_missing",
+					"prototype": "def handle_missing(df_dict: dict) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict"
+							],
+							"init": {
+								"df_dict": {
+									"A": [
+										1,
+										"None",
+										3
+									],
+									"B": [
+										4,
+										5,
+										"None"
+									]
+								}
+							},
+							"returns": {
+								"A": [
+									1.0,
+									2.0,
+									3.0
+								],
+								"B": [
+									4.0,
+									5.0,
+									5.5
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Fill missing values: forward‑fill column A (ffill) and fill column B with its mean. Return the filled DataFrame as dict."
+				},
+				{
+					"name": "groupby_mean",
+					"prototype": "def groupby_mean(df_dict: dict, group_col: str, value_col: str) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict",
+								"group_col",
+								"value_col"
+							],
+							"init": {
+								"df_dict": {
+									"cat": [
+										"x",
+										"x",
+										"y",
+										"y"
+									],
+									"val": [
+										1,
+										2,
+										3,
+										4
+									]
+								},
+								"group_col": "cat",
+								"value_col": "val"
+							},
+							"returns": {
+								"x": 1.5,
+								"y": 3.5
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Group by group_col and compute mean of value_col. Return a dict with group as key and mean as value."
+				},
+				{
+					"name": "merge_dfs",
+					"prototype": "def merge_dfs(df1_dict: dict, df2_dict: dict, on: str) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df1_dict",
+								"df2_dict",
+								"on"
+							],
+							"init": {
+								"df1_dict": {
+									"id": [
+										1,
+										2
+									],
+									"name": [
+										"Alice",
+										"Bob"
+									]
+								},
+								"df2_dict": {
+									"id": [
+										1,
+										2
+									],
+									"score": [
+										90,
+										85
+									]
+								},
+								"on": "id"
+							},
+							"returns": {
+								"id": [
+									1,
+									2
+								],
+								"name": [
+									"Alice",
+									"Bob"
+								],
+								"score": [
+									90,
+									85
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Merge two DataFrames on the given column and return the merged result as dictionary."
+				},
+				{
+					"name": "datetime_index",
+					"prototype": "def datetime_index(df_dict: dict, date_col: str) -> dict:",
+					"type": "function",
+					"allowed": [
+						"pandas"
+					],
+					"tests": [
+						{
+							"args": [
+								"df_dict",
+								"date_col"
+							],
+							"init": {
+								"df_dict": {
+									"date": [
+										"2023-01-01",
+										"2023-01-02"
+									],
+									"value": [
+										100,
+										200
+									]
+								},
+								"date_col": "date"
+							},
+							"returns": {
+								"index": [
+									"2023-01-01",
+									"2023-01-02"
+								],
+								"values": [
+									100,
+									200
+								]
+							},
+							"stdout": ""
+						}
+					],
+					"description": "Convert the date column to datetime and set it as index. Return a dict with the index (as strings) and the remaining column as a list."
+				}
+			]
+		}
+	]
+}

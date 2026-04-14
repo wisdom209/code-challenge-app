@@ -1,0 +1,48 @@
+{
+  "title": "C 09",
+  "language": "c",
+  "chapters": [
+    {
+      "title": "Chapter I",
+      "exercises": [
+        {
+          "name": "libft_creator",
+          "prototype": "",
+          "type": "function",
+          "allowed": ["write"],
+          "required_files": [
+            "libft_creator.sh",
+            "ft_putchar.c",
+            "ft_swap.c",
+            "ft_putstr.c",
+            "ft_strlen.c",
+            "ft_strcmp.c"
+          ],
+          "custom_test": true,
+          "description": "Create a shell script `libft_creator.sh` that compiles the provided .c files and creates `libft.a` (a static library). The script must run with `sh libft_creator.sh` and produce `libft.a` in the same directory.",
+          "tests": []
+        },
+        {
+          "name": "Makefile",
+          "prototype": "",
+          "type": "function",
+          "allowed": [],
+          "required_files": ["Makefile"],
+          "custom_test": true,
+          "description": "Create a `Makefile` that compiles `libft.a` from source files in `srcs/` (ft_putchar.c, ft_swap.c, ft_putstr.c, ft_strlen.c, ft_strcmp.c) and header in `includes/ft.h`. It must implement rules: `all`, `clean`, `fclean`, `re`, `libft.a`. Use `-Wall -Wextra -Werror`. No unnecessary recompilation.",
+          "tests": []
+        },
+        {
+          "name": "ft_split",
+          "prototype": "char **ft_split(char *str, char *charset);",
+          "type": "function",
+          "allowed": ["malloc"],
+          "required_files": ["ft_split.c"],
+          "custom_test": true,
+          "description": "Split `str` using any character from `charset` as separator. Return a NULL‑terminated array of strings (no empty strings). The input string is read‑only. Memory must be allocated with `malloc`.",
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Settings</h1>
+<form method="post">
+    <label for="repo_url">GitHub Repository URL:</label><br>
+    <input type="url" id="repo_url" name="repo_url" value="{{ config.repo_url or '' }}" size="60" placeholder="https://github.com/username/repo"><br><br>
+    <button type="submit">Save</button>
+</form>
+
+<h2>Progress Management</h2>
+<button onclick="resetAll()">Reset All Progress</button>
+<p>Export and import are available in the navigation bar.</p>
+
+<script>
+    function resetAll() {
+        if (confirm('Reset ALL progress for all books?')) {
+            fetch('{{ url_for("reset") }}', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ level: 'all' })
+            }).then(r => r.json()).then(data => {
+                if (data.success) alert('All progress reset.');
+            });
+        }
+    }
+</script>
+{% endblock %}
